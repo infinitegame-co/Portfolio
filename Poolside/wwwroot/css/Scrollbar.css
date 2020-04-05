@@ -1,0 +1,46 @@
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFC9C9;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid black;
+    image-rendering: pixelated;
+}
+
+    ::-webkit-scrollbar-thumb:horizontal {
+        background-image: url('../img/ui/horizontalscrollbarthumb.png');
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        background-image: url('../img/ui/verticalscrollbarthumb.png');
+    }
+
+::-webkit-scrollbar-track {
+    background: #FFC9C9;
+    background-position: center;
+    background-size: 14px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0px 0px 1px;
+    image-rendering: pixelated;
+}
+
+    ::-webkit-scrollbar-track:horizontal {
+        background-image: url('../img/ui/horizontalscrollbarbackground.png');
+    }
+
+    ::-webkit-scrollbar-track:vertical {
+        background-image: url('../img/ui/verticalscrollbarbackground.png');
+    }
+
+::-webkit-resizer {
+    background: red;
+}
+
+::-webkit-scrollbar-corner {
+    background: #FFC9C9;
+    border: 1px solid black;
+}

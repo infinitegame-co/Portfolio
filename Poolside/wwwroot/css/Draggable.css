@@ -1,0 +1,7 @@
+﻿#Draggable{
+    position: absolute;
+}
+
+#DraggableHeader{
+    cursor: move;
+}
