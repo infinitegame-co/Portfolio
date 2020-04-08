@@ -2,9 +2,9 @@
 
 function dragElement(elmnt) {
     var PosX = 0, PosY = 0, OriginalPosX = 0, OriginalPosY = 0;
-
-    if (document.getElementById(elmnt.id + "Header")) {
-        document.getElementById(elmnt.id + "Header").onmousedown = dragMouseDown;
+    var ElmntHeader = document.getElementById(elmnt.id + "Header");
+    if (ElmntHeader) {
+        ElmntHeader.onmousedown = dragMouseDown;
     }
     else {
         elmnt.onmousedown = dragMouseDown;

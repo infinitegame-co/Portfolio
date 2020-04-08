@@ -1,0 +1,15 @@
+﻿body {
+    background-image: url('../img/background/low res logo web6.png');
+    image-rendering: pixelated;
+    background-repeat: repeat;
+    font-family: pixel_arial, Arial;
+    /*font-family: Arial, pixel_arial;*/
+    -webkit-font-smoothing: none;
+}
+
+@font-face {
+    font-family: 'pixel_arial';
+    src: url(../font/pixelarial11.woff2) format('woff2'), url(../font/pixelarial11.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
