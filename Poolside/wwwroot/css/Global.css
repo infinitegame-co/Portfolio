@@ -2,3 +2,10 @@
     image-rendering: pixelated;
 }
 
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+    cursor: url(../img/cursor/click.a54d5106.svg), auto;
+}
+
+.cursor {
+    cursor: url(../img/cursor/cursor.e07882b3.svg), auto;
+}

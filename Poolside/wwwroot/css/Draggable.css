@@ -3,5 +3,5 @@
 }
 
 #DraggableHeader {
-    cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto;
+    *cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto;
 }
