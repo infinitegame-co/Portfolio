@@ -10,7 +10,7 @@
     m = checkTime(m);
     document.getElementById('Clock').innerHTML =
         h + ":" + m + " - " + d + " " + D + " " + M + " 1997";
-    var t = setTimeout(startTime, 500);
+    var t = setTimeout(startTime, 5000);
 }
 function checkTime(i) {
     if (i < 10) { i = "0" + i };

@@ -1,4 +1,5 @@
-﻿img {
+﻿/*Css file wherein all html files are directly affected*/
+img {
     image-rendering: pixelated;
 }
 

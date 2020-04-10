@@ -12,7 +12,24 @@
 </head>
 <body onload="startTime()">
     <header style="background-color: #FFC9C9" class="header">
-        <div id="Clock"></div>
+        <ul class="left-side">
+            <li style="padding: 0 .35em;">
+                <img src="~/img/icons/LowresLogo.png" height="12" />
+                <span>After Dark</span>
+            </li>
+            <li class="link">
+                <span style="text-decoration:underline;">A</span>bout
+            </li>
+            @* <li>
+                    <!--TODO: add themes-->
+                </li>*@
+            <li>
+
+            </li>
+        </ul>
+        <span class="right-side">
+            <span id="Clock" class="item"></span>
+        </span>
         @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Poolside</a>
