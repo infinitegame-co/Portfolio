@@ -13,6 +13,7 @@
     -webkit-box-align: center;
     align-items: center;
     height: 20px;
+    line-height: 10px;
     -webkit-box-pack: justify;
     justify-content: space-between;
     border-bottom: 1px solid rgb(0, 0, 0);
@@ -59,17 +60,28 @@
 }
 
 .link {
-    cursor: url(../img/cursor/click.a54d5106.svg), auto;
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
     display: inline-flex;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 0.35em;
+    margin: 0 -2.3px;
 }
 
     .link > * {
         user-select: none;
     }
 
-    .link::selection {
+    .link:active {
         color: #fff;
         background: #000;
+    }
+    .link:focus {
+        outline: none !important;
+    }
+    .link:disabled {
+        color: #808080;
     }
 
 @font-face {

@@ -12,21 +12,28 @@
 </head>
 <body onload="startTime()">
     <header style="background-color: #FFC9C9" class="header">
-        <ul class="left-side">
-            <li style="padding: 0 .35em;">
+        <span style="height: 20px;">
+            <span style="padding: 0 .35em;">
                 <img src="~/img/icons/LowresLogo.png" height="12" />
                 <span>After Dark</span>
-            </li>
-            <li class="link">
-                <span style="text-decoration:underline;">A</span>bout
-            </li>
-            @* <li>
-                    <!--TODO: add themes-->
-                </li>*@
-            <li>
+            </span>
+            <button class="link"><span style="text-decoration:underline;">A</span>bout</button>
+            <button class="link" disabled><span style="text-decoration:underline;">T</span>hemes</button><!--TODO: add themes-->
+            <button class="link"><span style="text-decoration:underline;">S</span>ign In/Up</button>
+        </span>
+        @* <ul class="left-side">
+                <li style="padding: 0 .35em;">
+                </li>
+                <li class="link">
 
-            </li>
-        </ul>
+                </li>
+                <li>
+                        <!--TODO: add themes-->
+                    </li>
+                <li>
+
+                </li>
+            </ul>*@
         <span class="right-side">
             <span id="Clock" class="item"></span>
         </span>
