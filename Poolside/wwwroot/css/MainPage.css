@@ -57,16 +57,17 @@
     display: inline-block;
     text-decoration: none;
     color: #000;
+    user-select: none;
 }
 
 .link {
     cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
-    display: inline-flex;
     height: 100%;
     background-color: transparent;
     border: none;
     padding: 0 0.35em;
     margin: 0 -2.3px;
+    user-select: all;
 }
 
     .link > * {
@@ -77,11 +78,40 @@
         color: #fff;
         background: #000;
     }
+
     .link:focus {
         outline: none !important;
     }
+
     .link:disabled {
         color: #808080;
+    }
+
+.BT-Fullscreen {
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
+    background: url(../img/ui/fullscreen.png) no-repeat 7px;
+    padding-left: 25px;
+    padding-right: .5em;
+    line-height: 20px;
+    margin-top: -1px;
+}
+
+    .BT-Fullscreen > * {
+        background-color: transparent;
+        border: none;
+        padding: 0 0.35em;
+        margin: 0 -2.3px;
+        user-select: all;
+    }
+
+    .BT-Fullscreen:active {
+        background: #000;
+    }
+    .BT-Fullscreen > *:active {
+        color: #fff;
+    }
+    .BT-Fullscreen > *:focus {
+        outline: none !important;
     }
 
 @font-face {
