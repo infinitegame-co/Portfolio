@@ -2,9 +2,34 @@
     ViewData["Title"] = "Home Page";
 }
 <link href="~/css/Draggable.css" rel="stylesheet" />
+<link href="~/css/MainPage.css" rel="stylesheet" />
 <div>
-    <div id="Draggable">
-        <img src="~/Content/Images/tumblr_inline_ov9h7hZgKq1rsx9gn_540.png" class="shadowB" />
+
+    <div  id="Draggable" style="position: absolute; border: 1px solid #000 ">
+        <div class="Bi" style="position:absolute; bottom: 0; left: 0; width: calc(100% - 18px);height: 12px;"></div>
+        <div class="background">
+            <div class="Drag-header">
+                <!--draggable header-->
+                <button style="width: 11px; height: 11px;">
+                </button>
+                <span class="spacer">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+                <h2 class="Content-Title">
+                    Kermit
+                </h2>
+            </div>
+            <div class="Box-Outer">
+                <img src="~/Content/Images/tumblr_inline_ov9h7hZgKq1rsx9gn_540.png" class="Box-Inner" />
+            </div>
+            <div class="scale"></div>
+        </div>
     </div>
+
 </div>
 

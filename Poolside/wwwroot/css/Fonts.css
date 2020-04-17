@@ -1,0 +1,21 @@
+﻿
+@font-face {
+    font-family: 'pixel_arial';
+    src: url(../font/pixelarial11.woff2) format('woff2'), url(../font/pixelarial11.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chicago';
+    src: url(../font/chikarego2-webfont.bfc0d735.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DOS';
+    src: url(../font/PerfectDOSVGA437.b74ea055.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

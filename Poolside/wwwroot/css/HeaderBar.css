@@ -1,0 +1,103 @@
+﻿.header {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 20px;
+    line-height: 10px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: background 0.1s ease-in-out 0.5s;
+    font-family: Chicago, DOS, Monofonto;
+    /*user-select: none;*/
+}
+
+    .header:not(input):not(textarea) {
+        user-select: none;
+    }
+
+.item {
+    height: 100%;
+    line-height: 20px;
+    padding: 0 6px;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    user-select: none;
+}
+
+.left-side {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.right-side {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 0.35em;
+    margin: 0 -2.3px;
+    user-select: all;
+}
+
+    .link > * {
+        user-select: none;
+    }
+
+    .link:active {
+        color: #fff;
+        background: #000;
+    }
+
+    .link:focus {
+        outline: none !important;
+    }
+
+    .link:disabled {
+        color: #808080;
+    }
+
+.BT-Fullscreen {
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
+    background: url(../img/ui/fullscreen.png) no-repeat 7px;
+    padding-left: 25px;
+    padding-right: .5em;
+    line-height: 20px;
+    margin-top: -1px;
+}
+
+    .BT-Fullscreen > * {
+        background-color: transparent;
+        border: none;
+        padding: 0 0.35em;
+        margin: 0 -2.3px;
+        user-select: all;
+    }
+
+    .BT-Fullscreen:active {
+        background: #000;
+    }
+
+    .BT-Fullscreen > *:active {
+        color: #fff;
+    }
+
+    .BT-Fullscreen > *:focus {
+        outline: none !important;
+    }

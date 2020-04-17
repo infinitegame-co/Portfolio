@@ -8,129 +8,92 @@
     color: #000;
 }
 
-.header {
+.Drag-header {
+    cursor: url(../img/cursor/grab.4f3c4e6a.svg) auto !important;
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    height: 20px;
-    line-height: 10px;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    transition: background 0.1s ease-in-out 0.5s;
-    font-family: Chikagero, DOS, Monofonto;
-    /*user-select: none;*/
+    padding: 5px;
+    height: 21px;
+    width: 100%;
+    user-select: none;
 }
-
-    .header:not(input):not(textarea) {
-        user-select: none;
-    }
 
 .shadowB {
     box-shadow: inset 1px 1px 0 0 #fff, 5px 5px 0 rgba(0,0,0,.2);
 }
 
-.left-side {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
+.Box {
+    position: absolute;
+    user-select: auto;
+    background: #FFC9C9;
+    border: 1px solid #000;
+    height: 12px;
+    right: 17px;
+    bottom: 0;
+    left: 0;
+    background: url('../img/ui/bottom.png');
+    pointer-events: none;
+    content: " ";
+    display: block;
 }
 
-.right-side {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
+.background {
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    background-color: #FFC9C9;
+    width: auto;
 }
 
-.item {
+.Bi {
+    background: url(../img/ui/bottom.png);
+}
+
+.Box-Inner {
+    border: 1px solid #000;
     height: 100%;
-    line-height: 20px;
-    padding: 0 6px;
-    border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
-    display: inline-block;
-    text-decoration: none;
-    color: #000;
-    user-select: none;
+    width: auto;
 }
 
-.link {
-    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    padding: 0 0.35em;
-    margin: 0 -2.3px;
-    user-select: all;
+.Box-Outer {
+    padding: 0px 5px 15px 5px;
+    position: relative;
+    flex: 1;
+    /*overflow: hidden;*/
 }
 
-    .link > * {
-        user-select: none;
+.Box-header {
+}
+
+    .Box-header:before {
     }
 
-    .link:active {
-        color: #fff;
+.scale {
+    display: block;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    font-size: 1px;
+    background: url('../img/ui/resizer.png') no-repeat 50%;
+    background-size: 7px auto;
+    bottom: 3px !important;
+    right: 5px !important;
+    cursor: url(../img/cursor/resize.c8e663b2.svg), auto !important;
+}
+
+.Content-Title {
+    font-size: 16px;
+    font-family: Chicago, DOS, Monofonto;
+    -webkit-font-smoothing: none;
+    margin: 0;
+}
+
+.spacer {
+    margin-left: 5px;
+}
+
+    .spacer i {
+        display: block;
+        width: 100%;
+        height: 1px;
         background: #000;
     }
-
-    .link:focus {
-        outline: none !important;
-    }
-
-    .link:disabled {
-        color: #808080;
-    }
-
-.BT-Fullscreen {
-    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
-    background: url(../img/ui/fullscreen.png) no-repeat 7px;
-    padding-left: 25px;
-    padding-right: .5em;
-    line-height: 20px;
-    margin-top: -1px;
-}
-
-    .BT-Fullscreen > * {
-        background-color: transparent;
-        border: none;
-        padding: 0 0.35em;
-        margin: 0 -2.3px;
-        user-select: all;
-    }
-
-    .BT-Fullscreen:active {
-        background: #000;
-    }
-    .BT-Fullscreen > *:active {
-        color: #fff;
-    }
-    .BT-Fullscreen > *:focus {
-        outline: none !important;
-    }
-
-@font-face {
-    font-family: 'pixel_arial';
-    src: url(../font/pixelarial11.woff2) format('woff2'), url(../font/pixelarial11.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Chikagero';
-    src: url(../font/chikarego2-webfont.bfc0d735.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'DOS';
-    src: url(../font/PerfectDOSVGA437.b74ea055.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
