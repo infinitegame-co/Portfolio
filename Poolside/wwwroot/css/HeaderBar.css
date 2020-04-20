@@ -73,6 +73,11 @@
         color: #808080;
     }
 
+        .link:disabled:active {
+            color: #808080;
+            background-color: transparent;
+        }
+
 .BT-Fullscreen {
     cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
     background: url(../img/ui/fullscreen.png) no-repeat 7px;

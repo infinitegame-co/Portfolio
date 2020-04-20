@@ -61,12 +61,6 @@
     /*overflow: hidden;*/
 }
 
-.Box-header {
-}
-
-    .Box-header:before {
-    }
-
 .scale {
     display: block;
     position: absolute;
@@ -88,7 +82,11 @@
 }
 
 .spacer {
-    background: url('../img/ui/dragbar.png');
+    background: url(../img/UI/DragBar.png); /*Why wont you show up*/
+    width: 50px;
+    height: auto;
+    margin: 5px;
+    cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto !important;
 }
 
 .Bt-Close {
@@ -97,8 +95,9 @@
     width: 11px !important;
     height: 11px !important;
     border: none;
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
 }
 
     .Bt-Close:active {
-        background-position-x: 12px;
+        background-position-x: 11px;
     }
