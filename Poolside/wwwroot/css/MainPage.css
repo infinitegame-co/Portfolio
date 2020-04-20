@@ -82,9 +82,8 @@
 }
 
 .spacer {
-    background: url(../img/UI/DragBar.png); /*Why wont you show up*/
-    width: 50px;
-    height: auto;
+    width: 80%;
+    height: 11px;
     margin: 5px;
     cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto !important;
 }
@@ -101,3 +100,44 @@
     .Bt-Close:active {
         background-position-x: 11px;
     }
+
+.Icon-Row {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.Icon-Item {
+    width: 76px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .Icon-Item > * > * {
+        user-select: none;
+    }
+
+    .Icon-Item > * > span {
+        font-size: 8px;
+        background: #D8D7E7;
+        border-color: #D8D7E7;
+        padding: 0 .35em;
+    }
+
+    .Icon-Item:active > * > span {
+        color: #fff;
+        border: 1px dotted #ccc !important;
+        background: #000 !important;
+    }
+
+
+.Icon-Wrapper {
+    height: 35px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 7px;
+}
