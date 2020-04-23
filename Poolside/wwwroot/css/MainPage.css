@@ -82,7 +82,7 @@
 }
 
 .spacer {
-    width: 80%;
+    width: 100%;
     height: 11px;
     margin: 5px;
     cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto !important;
@@ -95,6 +95,7 @@
     height: 11px !important;
     border: none;
     cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
+    padding-right: 10px;
 }
 
     .Bt-Close:active {

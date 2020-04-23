@@ -34,12 +34,13 @@
         </span>
     </header>
     <div class="container">
-        <main id="containment-wrapper" role="main" style="position:absolute; top:20px; left:0; width:100%; height: calc(100% - 20px);">
+        <main id="containment-wrapper" class="Draggable-Container" role="main" style="position:absolute; top:20px; left:0; width:100%; height: calc(100% - 20px);">
             @RenderBody()
         </main>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="~/lib/jquery-multidrag-plugin/jquery.multi-draggable.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Draggable.js"></script>

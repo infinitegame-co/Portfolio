@@ -1,7 +1,9 @@
-﻿#Draggable{
+﻿.Draggable{
     position: absolute;
 }
-
-#DraggableHeader {
+.Draggable-Container{
+    position: relative;
+}
+.DraggableHeader {
     *cursor: url(../img/cursor/grab.4f3c4e6a.svg), auto;
 }
