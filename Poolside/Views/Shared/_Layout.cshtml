@@ -20,7 +20,14 @@
             </span>
             <button class="link"><span><span style="text-decoration:underline;">A</span>bout</span></button>
             <button class="link" disabled><span><span style="text-decoration:underline;">T</span>hemes</span></button><!--TODO: add themes-->
-            <button class="link"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
+            @if (true)//TODO: add sessions
+            {
+                <button class="link"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
+            }
+            else
+            {
+                <button class="link"><span><span style="text-decoration:underline;">L</span>og Out</span></button>
+            }
         </span>
         <span class="right-side">
             <!--TODO: add volume slider0-->
