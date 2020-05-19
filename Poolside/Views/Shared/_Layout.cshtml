@@ -22,7 +22,7 @@
             <button class="link" disabled><span><span style="text-decoration:underline;">T</span>hemes</span></button><!--TODO: add themes-->
             @if (true)//TODO: add sessions
             {
-                <button class="link"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
+                <button class="link" onclick="OpenWindowCoord('LoginWindow',1,1)"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
             }
             else
             {
@@ -50,7 +50,7 @@
     <script src="~/lib/jquery-multidrag-plugin/jquery.multi-draggable.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/Draggable.js"></script>
+    <script src="~/js/JqueryUI.js"></script>
     <script src="~/js/Clock.js"></script>
     <script src="~/js/Fullscreen.js"></script>
     @RenderSection("Scripts", required: false)

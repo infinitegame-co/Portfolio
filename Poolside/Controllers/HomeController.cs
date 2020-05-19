@@ -23,7 +23,8 @@ namespace Poolside.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(LoginViewModel loginViewModel)
         {
             return View();
         }

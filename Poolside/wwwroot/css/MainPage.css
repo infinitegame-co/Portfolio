@@ -44,7 +44,7 @@
     width: auto;
 }
 
-.Bi {
+.Bottom-image {
     background: url(../img/ui/bottom.png);
 }
 
@@ -72,6 +72,10 @@
     bottom: 3px !important;
     right: 5px !important;
     cursor: url(../img/cursor/resize.c8e663b2.svg), auto !important;
+}
+
+.resizable-helper {
+    border: 1px dotted #000;
 }
 
 .Content-Title {
@@ -142,3 +146,70 @@
     justify-content: center;
     margin-bottom: 7px;
 }
+
+/*SIGN IN AND SIGN UP*/
+
+.SignUp {
+    padding: 10px;
+    font-size: 8px;
+}
+
+.SignUp-Image {
+    margin: 0 10px;
+    position: relative;
+    flex: 1;
+}
+
+.SignUp-Header {
+    height: 43px;
+    padding: 1.75em;
+    justify-content: space-between;
+}
+
+.SignUp-List {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25em 0;
+}
+
+    .SignUp-List li {
+        background: url('../img/ui/bullet.png') no-repeat left 3px;
+        padding-left: 1.75em;
+        line-height: 2;
+    }
+
+.SignUp-Input {
+    font-size: 8px;
+    padding: 1em;
+    border: 1px solid #000 !important;
+    cursor: url(../img/cursor/insert.3bf6216c.svg),auto !important;
+    display: block;
+    width: 100%;
+    margin-bottom: 3px;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.SignUp-Input-Button {
+    border: 1px solid #000;
+    display: block;
+    border-radius: 3px;
+    width: 100%;
+    background: transparent;
+    padding: .5em 0;
+    font-family: Chicago;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    margin: .5em 0;
+    outline: none !important;
+    cursor: url(../img/cursor/click.a54d5106.svg), auto !important;
+}
+
+    .SignUp-Input-Button:active {
+        background: #000;
+        color: white;
+        outline: none !important;
+    }

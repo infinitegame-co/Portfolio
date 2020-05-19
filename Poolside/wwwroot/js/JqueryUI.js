@@ -12,3 +12,9 @@
         }
     }
 });
+
+$(function () {
+    $("#resizable").resizable({
+        helper: "resizable-helper"
+    });
+});
