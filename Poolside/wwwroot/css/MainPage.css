@@ -74,10 +74,6 @@
     cursor: url(../img/cursor/resize.c8e663b2.svg), auto !important;
 }
 
-.resizable-helper {
-    border: 1px dotted #000;
-}
-
 .Content-Title {
     font-size: 16px;
     font-family: Chicago, DOS, Monofonto;

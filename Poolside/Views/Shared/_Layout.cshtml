@@ -10,6 +10,7 @@
     <link href="~/css/Global.css" rel="stylesheet" />
     <link href="~/css/HeaderBar.css" rel="stylesheet" />
     <link href="~/css/Fonts.css" rel="stylesheet" />
+    <link href="~/lib/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
 </head>
 <body onload="startTime()">
     <header style="background-color: #FFC9C9" class="header">
@@ -50,7 +51,8 @@
     <script src="~/lib/jquery-multidrag-plugin/jquery.multi-draggable.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/JqueryUI.js"></script>
+    @*<script src="~/js/JqueryUI.js"></script>*@
+    <script src="~/js/Windows.js"></script>
     <script src="~/js/Clock.js"></script>
     <script src="~/js/Fullscreen.js"></script>
     @RenderSection("Scripts", required: false)

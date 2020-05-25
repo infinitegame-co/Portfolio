@@ -1,4 +1,4 @@
-﻿
+﻿//######Functions#####
 function CloseWindow(WindowId) {
     var window = document.getElementById(WindowId).childNodes;
     window[1].setAttribute('style', 'display: none;');
@@ -26,3 +26,27 @@ function QuickSwap(From, To) {
     CurrentWindow.setAttribute('style', "display: none;")
     SwapWindow.setAttribute('style', "display: inherit");
 }
+
+
+
+//######JqueryUI#####
+$('.Draggable-Container .Draggable').draggable({
+    containment: "#containment-wrapper",
+    multiple: false,
+    scroll: false,
+    selected: '.selected',
+    beforeStart: function () {
+        var $this = $(this);
+        if (!$this.hasClass('selected')) {
+            $this.siblings('.selected')
+                .removeClass('selected');
+            $this.addClass('selected');
+        }
+    }
+});
+
+JQuery(function () {
+    JQuery("#resizable").resizable({
+        helper: "ui-resizable-helper"
+    });
+});
