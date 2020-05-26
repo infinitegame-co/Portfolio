@@ -126,6 +126,9 @@
         background: #D8D7E7;
         border-color: #D8D7E7;
         padding: 0 .35em;
+        display: inline-block;
+        max-width: 70px !important;
+        overflow-wrap: break-word;
     }
 
     .Icon-Item:active > * > span {
