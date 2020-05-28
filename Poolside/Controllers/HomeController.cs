@@ -23,20 +23,11 @@ namespace Poolside.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult IndexLogin(LoginViewModel loginViewModel)
-        {
-            Debug.Print(loginViewModel.Email);
-            Debug.Print(loginViewModel.Password);
-            return View();
-        }
-        [HttpPost]
-        public IActionResult IndexRegister(LoginViewModel loginViewModel)
-        {
-            Debug.Print(loginViewModel.Email + "A");
-            Debug.Print(loginViewModel.Password + "A");
-            return View();
-        }
+        //[HttpPost]
+        //IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

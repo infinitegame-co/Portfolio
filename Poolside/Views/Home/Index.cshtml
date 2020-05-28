@@ -5,7 +5,7 @@
 <link href="~/css/Draggable.css" rel="stylesheet" />
 <link href="~/css/MainPage.css" rel="stylesheet" />
 <div>
-    <div id="LoginWindow">
+    @*<div id="LoginWindow">
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
             <div class="background">
                 <div id="SignUp" style="display:inline-block;">
@@ -26,8 +26,8 @@
                                 <li>And More to come</li>
                             </ul>
                             <form asp-action="IndexRegister">
-                                <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email"/>
-                                <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password"/>
+                                <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" />
+                                <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" />
                                 <button type="submit" class="SignUp-Input-Button">
                                     <span style="user-select:none;">Create account</span>
                                 </button>
@@ -49,8 +49,8 @@
                         </div>
                         <div class="SignUp" id="LogInReg">
                             <form asp-action="IndexLogin">
-                                <input id="Email" type="email" placeholder="Enter your email" class="SignUp-Input" asp-for="Email"/>
-                                <input id="Password1" type="password" placeholder="Enter your password" class="SignUp-Input" asp-for="Password"/>
+                                <input id="Email" type="email" placeholder="Enter your email" class="SignUp-Input" asp-for="Email" />
+                                <input id="Password1" type="password" placeholder="Enter your password" class="SignUp-Input" asp-for="Password" />
                                 <button type="submit" class="SignUp-Input-Button">
                                     <span style="user-select:none;">Log In</span>
                                 </button>
@@ -74,6 +74,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>*@
+
+    <div id="LoginWindow">
+        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
+            @await Html.PartialAsync("../Account/Login.cshtml")
         </div>
     </div>
 

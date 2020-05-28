@@ -1,0 +1,71 @@
+﻿@model Poolside.Models.LoginViewModel
+
+<div>
+    <div class="background">
+        <div id="SignUp" style="display:inline-block;">
+            <div class="Drag-header SignUp-Header">
+                <h2 class="Content-Title" style="left:0;">
+                    Join the fun, take a seat.
+                </h2>
+                <span class="Bt-Close" onclick="CloseWindow('LoginWindow')" style="right:0;"></span>
+            </div>
+            <div>
+                <div class="SignUp-Image">
+                    <img src="/Content/Images/loginSignup/LoginImage.png" class="Box-Inner">
+                </div>
+                <div class="SignUp">
+                    <ul class="SignUp-List">
+                        <li>Leave comments on portfolio pages</li>
+                        <li>Write in the GuestBook</li>
+                        <li>And More to come</li>
+                    </ul>
+                    <form asp-action="LoginRegister">
+                        <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" />
+                        <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" />
+                        <button type="submit" class="SignUp-Input-Button">
+                            <span style="user-select:none;">Create account</span>
+                        </button>
+                    </form>
+                    <span>Already have an account? <u><a onclick="ChangeWindow('SignUp','LogIn')">Log In</a></u></span>
+                </div>
+            </div>
+        </div>
+        <div id="LogIn" style="display:none;">
+            <div class="Drag-header SignUp-Header">
+                <h2 class="Content-Title" style="left:0;">
+                    Stay a while and listen.
+                </h2>
+                <span class="Bt-Close" onclick="CloseWindow('LoginWindow')" style="right:0;"></span>
+            </div>
+            <div>
+                <div class="SignUp-Image">
+                    <img src="~/Content/Images/loginSignup/signup4.png" class="Box-Inner" />
+                </div>
+                <div class="SignUp" id="LogInReg">
+                    <form asp-action="LoginLogin">
+                        <input id="Email" type="email" placeholder="Enter your email" class="SignUp-Input" asp-for="Email" />
+                        <input id="Password1" type="password" placeholder="Enter your password" class="SignUp-Input" asp-for="Password" />
+                        <button type="submit" class="SignUp-Input-Button">
+                            <span style="user-select:none;">Log In</span>
+                        </button>
+                    </form>
+                    <p>
+                        <span>Don't have an account? <u><a onclick="ChangeWindow('LogIn','SignUp')">Sign Up</a></u></span>
+                    </p>
+                    <p>
+                        <span><u><a onclick="QuickSwap('LogInReg','LogInForgot')">Forgot Password?</a></u></span>
+                    </p>
+                </div>
+                <div class="SignUp" id="LogInForgot" style="display:none;">
+                    <form>
+                        <input type="email" placeholder="Enter your email" class="SignUp-Input" />
+                        <button type="submit" class="SignUp-Input-Button">
+                            <span style="user-select:none;">Remind Me</span>
+                        </button>
+                    </form>
+                    <span><u><a onclick="QuickSwap('LogInForgot','LogInReg')">Back to login</a></u></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

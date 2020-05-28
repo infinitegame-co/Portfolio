@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Poolside.Models;
 
 namespace Poolside.Data
 {
@@ -12,5 +13,6 @@ namespace Poolside.Data
             : base(options)
         {
         }
+        public DbSet<Poolside.Models.LoginViewModel> LoginViewModel { get; set; }
     }
 }
