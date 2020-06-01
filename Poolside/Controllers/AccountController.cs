@@ -27,7 +27,7 @@ namespace Poolside.Controllers
         {
             Debug.Print(loginViewModel.Email);
             Debug.Print(loginViewModel.Password);
-            return View();
+            return View("../Home/Index");
         }
 
 
@@ -36,9 +36,7 @@ namespace Poolside.Controllers
         {
             Debug.Print(loginViewModel.Email + "A");
             Debug.Print(loginViewModel.Password + "A");
-            return View();
+            return View("../Home/Index");
         }
-
-
     }
 }
