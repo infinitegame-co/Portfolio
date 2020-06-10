@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DTO;
 
 namespace Logic
 {
@@ -12,10 +13,12 @@ namespace Logic
 
         }
 
-        public void WriteInGuestBook()
+        public void WriteInGuestBook(DTO.GuestBookDTO guestBook)
         {
 
         }
+
+
 
     }
 }

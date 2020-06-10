@@ -1,7 +1,7 @@
-using Logic;
+using DTO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Logic.AccountTests
+namespace DTO.AccountTests
 {
     [TestClass()]
     public class UnitTest1

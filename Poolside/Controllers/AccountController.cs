@@ -17,12 +17,6 @@ namespace Poolside.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel loginViewModel)
-        {
-            return View();
-        }
-
-        [HttpPost]
         public IActionResult LoginLogin(LoginViewModel loginViewModel)
         {
             Debug.Print(loginViewModel.Email);

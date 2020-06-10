@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Logic
 {
-    class Admin
+    class AdminInteractions
     {
         public void CreatePortFolio()
         {
@@ -30,6 +30,5 @@ namespace Logic
         {
 
         }
-
     }
 }
