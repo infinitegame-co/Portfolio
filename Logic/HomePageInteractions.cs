@@ -5,7 +5,7 @@ using DTO;
 
 namespace Logic
 {
-    class HomePageInteractions
+    public class HomePageInteractions
     {
         public List<PortfolioDTO> GetAllPortfolios()
         {

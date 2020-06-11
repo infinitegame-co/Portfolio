@@ -1,0 +1,33 @@
+﻿@model Poolside.Models.LoginViewModel
+
+<div>
+    <div class="Drag-header SignUp-Header">
+        <h2 class="Content-Title" style="left:0;">
+            Join the fun, take a seat.
+        </h2>
+        <span class="Bt-Close" onclick="CloseWindow('LoginWindow')" style="right:0;"></span>
+    </div>
+    <div>
+        <div class="SignUp-Image">
+            <img src="/Content/Images/loginSignup/LoginImage.png" class="Box-Inner">
+        </div>
+        <div class="SignUp">
+            <ul class="SignUp-List">
+                <li>Leave comments on portfolio pages</li>
+                <li>Write in the GuestBook</li>
+                <li>And More to come</li>
+            </ul>
+            @*@using (Html.BeginForm("LoginRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                {*@
+            <form>
+                <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" />
+                <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" />
+                <button type="submit" class="SignUp-Input-Button">
+                    <span style="user-select:none;">Create account</span>
+                </button>
+            </form>
+            @* } *@
+            <span>Already have an account? <u><a onclick="ChangeWindow('SignUp','LogIn')">Log In</a></u></span>
+        </div>
+    </div>
+</div>

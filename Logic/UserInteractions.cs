@@ -5,7 +5,7 @@ using DTO;
 
 namespace Logic
 {
-    class UserInteractions
+    public class UserInteractions
     {
 
         public void PostComment()

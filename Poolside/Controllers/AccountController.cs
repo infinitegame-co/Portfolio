@@ -17,20 +17,35 @@ namespace Poolside.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoginLogin(LoginViewModel loginViewModel)
+        public IActionResult Login(LoginViewModel loginViewModel)
         {
-            Debug.Print(loginViewModel.Email);
-            Debug.Print(loginViewModel.Password);
-            return View("../Home/Index");
+            //Debug.Print(loginViewModel.Email);
+            //Debug.Print(loginViewModel.Password);
+            return View();
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public IActionResult LoginRegister(LoginViewModel loginViewModel)
+        public IActionResult Register(LoginViewModel loginViewModel)
         {
-            Debug.Print(loginViewModel.Email + "A");
-            Debug.Print(loginViewModel.Password + "A");
-            return View("../Home/Index");
+            //Debug.Print(loginViewModel.Email + "A");
+            //Debug.Print(loginViewModel.Password + "A");
+            return View();
+        }
+
+        public IActionResult Forgot()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Forgot(LoginViewModel loginViewModel)
+        {
+            return View();
         }
     }
 }
