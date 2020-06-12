@@ -7,6 +7,10 @@ namespace Logic
 {
     public class HomePageInteractions
     {
+        public HomePageInteractions(/*DBAccess Database*/)
+        {
+
+        }
         public List<PortfolioDTO> GetAllPortfolios()
         {
             return new List<PortfolioDTO>();

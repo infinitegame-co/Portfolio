@@ -2,11 +2,17 @@
 using System.Text;
 using System.Security.Cryptography;
 using DTO;
+using DAL.Interfaces;
 
 namespace Logic
 {
     public class UserLogic
     {
+        private readonly IAccountAccess Account;
+        public UserLogic(IAccountAccess Account)
+        {
+            this.Account = Account;
+        }
         public void LogIn(AccountDTO Account)
         {
             if (CheckPasswords(Account.Password, Account.Email))

@@ -24,7 +24,7 @@ namespace DAL.Access
             throw new NotImplementedException();
         }
 
-        public List<Portfolio> GetAll()
+        public List<PortfolioDTO> GetAll()
         {
             throw new NotImplementedException();
         }

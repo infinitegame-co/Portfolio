@@ -2,7 +2,7 @@
 using DAL.Interfaces;
 using DTO;
 
-namespace DAL.Access
+namespace DAL.Access.Test
 {
     public class TAccountAccess : IAccountAccess
     {

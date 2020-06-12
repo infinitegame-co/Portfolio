@@ -5,7 +5,7 @@ using DAL.Interfaces;
 using DAL.Models;
 using DTO;
 
-namespace DAL.Access
+namespace DAL.Access.Test
 {
     class TPortfolioAccess : IPortfolioAccess
     {
@@ -24,7 +24,7 @@ namespace DAL.Access
             throw new NotImplementedException();
         }
 
-        public List<Portfolio> GetAll()
+        public List<PortfolioDTO> GetAll()
         {
             throw new NotImplementedException();
         }

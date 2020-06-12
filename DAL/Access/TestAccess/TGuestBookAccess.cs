@@ -4,7 +4,7 @@ using System.Text;
 using DAL.Interfaces;
 using DTO;
 
-namespace DAL.Access
+namespace DAL.Access.Test
 {
     class TGuestBookAccess : IGuestBookAccess
     {
