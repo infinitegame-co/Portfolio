@@ -9,6 +9,10 @@ namespace Logic
     public class UserLogic
     {
         private readonly IAccountAccess Account;
+        /// <summary>
+        /// Creates new instance of UserLogic
+        /// </summary>
+        /// <param name="Account">Class that inherits from IAccountAcces which in turn inherits from ICrudAccess</param>
         public UserLogic(IAccountAccess Account)
         {
             this.Account = Account;

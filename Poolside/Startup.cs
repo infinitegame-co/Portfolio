@@ -12,6 +12,9 @@ using Poolside.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Logic;
+using DAL.Interfaces;
+using DAL.Access.Test;
 
 namespace Poolside
 {
@@ -35,6 +38,8 @@ namespace Poolside
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSession();
+            services.AddScoped<IAccountAccess, TAccountAccess>();
+            services.AddScoped<UserLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

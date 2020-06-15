@@ -25,6 +25,12 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\Logic\Logic.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Content Update="wwwroot\Content\Fonts\chikarego2-webfont.bfc0d735.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

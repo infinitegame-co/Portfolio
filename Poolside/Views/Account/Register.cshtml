@@ -17,16 +17,16 @@
                 <li>Write in the GuestBook</li>
                 <li>And More to come</li>
             </ul>
-            @*@using (Html.BeginForm("LoginRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
-                {*@
-            <form>
-                <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" />
-                <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" />
-                <button type="submit" class="SignUp-Input-Button">
-                    <span style="user-select:none;">Create account</span>
-                </button>
-            </form>
-            @* } *@
+            @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+            {
+                <form>
+                    <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" />
+                    <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" />
+                    <button type="submit" class="SignUp-Input-Button">
+                        <span style="user-select:none;">Create account</span>
+                    </button>
+                </form>
+            }
             <span>Already have an account? <u><a onclick="ChangeWindow('SignUp','LogIn')">Log In</a></u></span>
         </div>
     </div>

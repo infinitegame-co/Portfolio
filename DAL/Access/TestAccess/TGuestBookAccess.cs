@@ -6,7 +6,7 @@ using DTO;
 
 namespace DAL.Access.Test
 {
-    class TGuestBookAccess : IGuestBookAccess
+    public class TGuestBookAccess : IGuestBookAccess
     {
         public void Create(GuestBookDTO obj)
         {
@@ -33,7 +33,7 @@ namespace DAL.Access.Test
             throw new NotImplementedException();
         }
 
-        public void Update(GuestBookDTO obj)
+        public void Update(GuestBookDTO Original, GuestBookDTO Replacement)
         {
             throw new NotImplementedException();
         }

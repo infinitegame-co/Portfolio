@@ -36,7 +36,7 @@ namespace Logic.Tests
         [TestMethod()]
         public void EditPortfolioTest()
         {
-            PortfolioDTO portfolio = new PortfolioDTO(1, new List<string>(), "", DateTime.MinValue, new List<string>());
+            PortfolioDTO portfolio = new PortfolioDTO(1,"", new List<string>(), "", DateTime.MinValue, new List<string>());
             int index = 0;
             Admin.EditPortfolio(index, portfolio);
             Assert.Fail();

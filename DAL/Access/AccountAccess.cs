@@ -6,17 +6,7 @@ namespace DAL.Access
 {
     public class AccountAccess : IAccountAccess
     {
-        public AccountDTO Get(AccountDTO user)
-        {
-            return new AccountDTO(1, "", "", "");
-        }
-
         public void Create(AccountDTO obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(AccountDTO obj)
         {
             throw new NotImplementedException();
         }
@@ -26,7 +16,12 @@ namespace DAL.Access
             throw new NotImplementedException();
         }
 
-        public AccountDTO Read(int index)
+        public AccountDTO Get(AccountDTO obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public AccountDTO GetLatestEntry()
         {
             throw new NotImplementedException();
         }
@@ -36,7 +31,12 @@ namespace DAL.Access
             throw new NotImplementedException();
         }
 
-        public AccountDTO GetLatestEntry()
+        public AccountDTO Read(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(AccountDTO Original, AccountDTO Replacement)
         {
             throw new NotImplementedException();
         }

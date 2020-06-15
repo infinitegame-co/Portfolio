@@ -9,7 +9,6 @@ using System.IO;
 
 namespace Logic.Tests
 {
-    //ExpectedException(typeof(Exception)) for testing with exceptions
     [TestClass()]
     public class UserLogicTests
     {
@@ -25,7 +24,6 @@ namespace Logic.Tests
             bool result = Logic.CheckPasswords(Login);
             Assert.IsTrue(result);
         }
-
         [TestMethod()]
         public void CreateAccountSuccessTest()
         {
@@ -34,7 +32,6 @@ namespace Logic.Tests
             Logic.CreateAccount(Account);
             Assert.IsTrue(AccountAccess.GetLatestEntry() == Account);
         }
-
         [TestMethod()]
         public void LogInSuccessTest()
         {
@@ -49,6 +46,7 @@ namespace Logic.Tests
             //Assert.AreEqual(Hashed, Result); want dit werkt blijkbaar niet
         }
         #endregion
+
         #region Failure
         [TestMethod()]//, ExpectedException(typeof(Exception))]//would work as well but is not what is desired 
         public void CreateAccountTakenEmailTest()

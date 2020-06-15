@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Poolside.Models;
+using Logic;
 
 namespace Poolside.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserLogic _User;
+        public AccountController(UserLogic User)
+        {
+            _User = User;
+        }
         public IActionResult Login()
         {
             return View();
@@ -34,7 +40,8 @@ namespace Poolside.Controllers
         {
             //Debug.Print(loginViewModel.Email + "A");
             //Debug.Print(loginViewModel.Password + "A");
-            return View();
+            //return View("../Home/Index",loginViewModel);
+            return View("../Home/Index",loginViewModel);
         }
 
         public IActionResult Forgot()

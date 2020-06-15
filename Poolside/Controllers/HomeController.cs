@@ -20,15 +20,6 @@ namespace Poolside.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.LastKermitState = "inline-block";
-            ViewBag.KermitT = 50;
-            ViewBag.KermitL = 50;
-            return View();
-        }
-
-        [HttpPost]
-        IActionResult Index(int i = 1)
-        {
             return View();
         }
 

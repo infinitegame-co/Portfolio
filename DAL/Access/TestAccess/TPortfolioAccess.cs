@@ -7,9 +7,10 @@ using DTO;
 
 namespace DAL.Access.Test
 {
-    class TPortfolioAccess : IPortfolioAccess
+    public class TPortfolioAccess : IPortfolioAccess
     {
-        public void Create(GuestBookDTO obj)
+        TestData test = new TestData();
+        public void Create(PortfolioDTO obj)
         {
             throw new NotImplementedException();
         }
@@ -19,9 +20,16 @@ namespace DAL.Access.Test
             throw new NotImplementedException();
         }
 
-        public GuestBookDTO Get(GuestBookDTO obj)
+        public PortfolioDTO Get(PortfolioDTO obj)
         {
-            throw new NotImplementedException();
+            foreach (PortfolioDTO port in test.Portfolios)
+            {
+                if (port.Title == obj.Title && port.CreationDate == obj.CreationDate && port.Content == obj.Content)
+                {
+                    return port;
+                }
+            }
+            return null;
         }
 
         public List<PortfolioDTO> GetAll()
@@ -34,19 +42,27 @@ namespace DAL.Access.Test
             throw new NotImplementedException();
         }
 
-        public GuestBookDTO GetLatestEntry()
+        public PortfolioDTO GetLatestEntry()
         {
             throw new NotImplementedException();
         }
 
-        public GuestBookDTO Read(int index)
+        public PortfolioDTO Read(int index)
         {
-            throw new NotImplementedException();
+            foreach (PortfolioDTO port in test.Portfolios)
+            {
+                if (port.Id == index)
+                {
+                    return port;
+                }
+            }
+            return null;
         }
 
-        public void Update(GuestBookDTO obj)
+        public void Update(PortfolioDTO Original, PortfolioDTO Replacement)
         {
-            throw new NotImplementedException();
+            Replacement.Id = Original.Id;
+            test.Portfolios[Original.Id] = Replacement;
         }
     }
 }

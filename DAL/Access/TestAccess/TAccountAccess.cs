@@ -59,7 +59,7 @@ namespace DAL.Access.Test
             throw new FileNotFoundException();
         }
 
-        public void Update(AccountDTO obj)
+        public void Update(AccountDTO Original, AccountDTO Replacement)
         {
             throw new NotImplementedException();
         }
