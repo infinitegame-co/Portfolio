@@ -34,6 +34,16 @@ namespace DAL.Access
             throw new NotImplementedException();
         }
 
+        public GuestBookDTO GetLatestEntry()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GuestBookDTO Read(int index)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(GuestBookDTO obj)
         {
             throw new NotImplementedException();

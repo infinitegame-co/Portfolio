@@ -13,48 +13,89 @@ namespace Logic
         {
             this.Account = Account;
         }
-        public void LogIn(AccountDTO Account)
+        public AccountDTO LogIn(AccountDTO Login)
         {
-            if (CheckPasswords(Account.Password, Account.Email))
+            if (MatchingEmails(Login.Email))
             {
-                //return positive login back
+                if (CheckPasswords(Login))
+                {
+                    //return positive login back
+                    Login.Email = CreateHashedString(Login.Email);
+                    Login.NickName = CreateHashedString(Login.NickName);
+                    Login.Password = CreateHashedString(Login.Password);
+                    return Login;
+                }
             }
             //else return negative login back
+            return null;
         }
-
-        public void CreateAccount(AccountDTO Account)
+        public void CreateAccount(AccountDTO Login)
         {
-            CreateHashedPassword(Account.Password);//not secure, not important right now.
+            if (!MatchingEmails(Login.Email))
+            {
+                if (!MatchingNickName(Login.NickName))
+                {
+                    Login.Password = CreateHashedString(Login.Password);//not secure, not important right now.
+                    Account.Create(Login);
+                    return;
+                }
+                else
+                {
+                    //throw new Exception("Nickname already taken");
+                }
+            }
+            else
+            {
+                //throw new Exception("Email is already taken");
+            }
         }
 
 
-        private string CreateHashedPassword(string Password)
+        private string CreateHashedString(string Value)
         {//TODO: add salting before publishing
-            StringBuilder sb = new StringBuilder();
-            string hashed = "";
-            byte[] temp;
             using (HashAlgorithm hash = SHA256.Create())
             {
-                temp = hash.ComputeHash(Encoding.UTF8.GetBytes(Password));
+                StringBuilder sb = new StringBuilder();
+                string hashed = "";
+                byte[] temp = hash.ComputeHash(Encoding.UTF8.GetBytes(Value));
+                foreach (byte bt in temp)
+                {
+                    sb.Append(bt.ToString("X2"));
+                }
+                hashed = sb.ToString();
+                return hashed;
             }
-            foreach (byte bt in temp)
+        }
+        public bool CheckPasswords(AccountDTO Login)
+        {
+            string tempPassword = CreateHashedString(Login.Password);
+            return tempPassword == GetHashedPassword(Login);
+        }
+        private string GetHashedPassword(AccountDTO Login)
+        {
+            return Account.Read(Login.Id).Password;
+        }
+        private bool MatchingEmails(string email)
+        {
+            for (int i = 0; i < Account.GetLength(); i++)
             {
-                sb.Append(bt.ToString("X2"));
+                if (Account.Read(i).Email == email)
+                {
+                    return true;
+                }
             }
-            hashed = sb.ToString();
-            return hashed;
+            return false;
         }
-
-        public bool CheckPasswords(string password, string email)
+        private bool MatchingNickName(string nickName)
         {
-            string tempPassword = password; //TODO: pass password through hashing and salting process
-            return tempPassword == GetHashedPassword(email);
-        }
-
-        private string GetHashedPassword(string email)
-        {
-            //access database and request password from email
-            return "";
+            for (int i = 0; i < Account.GetLength(); i++)
+            {
+                if (Account.Read(i).NickName == nickName)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

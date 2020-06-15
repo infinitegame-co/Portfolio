@@ -10,5 +10,7 @@ namespace DAL.Interfaces
         void Create(T obj);
         void Update(T obj);
         void Delete(int index);
+        T Read(int index);
+        T GetLatestEntry();
     }
 }

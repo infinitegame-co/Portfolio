@@ -7,6 +7,7 @@ namespace DTO
     public class PortfolioDTO
     {
         //private readonly PortfolioAccess
+        //TODO: make a method when converting from viewmodel to this where the id is got form the database
 
         public int Id { get; set; }
         public List<string> PageCategory { get; set; }

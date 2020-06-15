@@ -7,5 +7,6 @@ namespace DAL.Interfaces
 {
     public interface IAccountAccess : ICRUDAccess<AccountDTO>
     {
+        public int GetLength();
     }
 }
