@@ -7,15 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Poolside.Models;
 using Logic;
+using DTO;
 
 namespace Poolside.Controllers
 {
     public class AccountController : Controller
     {
         private readonly UserLogic _User;
+        private readonly Conversions _Convert;
         public AccountController(UserLogic User)
         {
             _User = User;
+            _Convert = new Conversions();
         }
         public IActionResult Login()
         {
@@ -27,7 +30,13 @@ namespace Poolside.Controllers
         {
             //Debug.Print(loginViewModel.Email);
             //Debug.Print(loginViewModel.Password);
-            return View();
+            AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
+            AccountDTO user = _User.LogIn(account);
+            if (user != null)
+            {
+                ViewBag.FakeLogin = true;
+            }
+            return View("../Home/Index", _Convert.ConvertToLoginViewModel(user));
         }
 
         public IActionResult Register()
@@ -40,8 +49,8 @@ namespace Poolside.Controllers
         {
             //Debug.Print(loginViewModel.Email + "A");
             //Debug.Print(loginViewModel.Password + "A");
-            //return View("../Home/Index",loginViewModel);
-            return View("../Home/Index",loginViewModel);
+            // _User.CreateAccount();
+            return View("../Home/Index", loginViewModel);
         }
 
         public IActionResult Forgot()

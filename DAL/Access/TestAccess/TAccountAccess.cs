@@ -25,7 +25,7 @@ namespace DAL.Access.Test
         {
             foreach (AccountDTO ac in Test.Users)
             {
-                if (obj == ac)
+                if (obj.Email == ac.Email && obj.Password == ac.Password)
                 {
                     return ac;
                 }

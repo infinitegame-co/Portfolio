@@ -14,13 +14,16 @@
                 <img src="~/Content/Images/loginSignup/signup4.png" class="Box-Inner" />
             </div>
             <div class="SignUp" id="LogInReg">
-                <form>
-                    <input id="Email" type="email" placeholder="Enter your email" class="SignUp-Input" asp-for="Email" />
-                    <input id="Password1" type="password" placeholder="Enter your password" class="SignUp-Input" asp-for="Password" />
-                    <button type="submit" class="SignUp-Input-Button">
-                        <span style="user-select:none;">Log In</span>
-                    </button>
-                </form>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <form asp-action="Login">
+                        <input id="Email" type="email" placeholder="Enter your email" class="SignUp-Input" asp-for="Email" />
+                        <input id="Password1" type="password" placeholder="Enter your password" class="SignUp-Input" asp-for="Password" />
+                        <button type="submit" class="SignUp-Input-Button">
+                            <span style="user-select:none;">Log In</span>
+                        </button>
+                    </form>
+                }
                 <p>
                     <span>Don't have an account? <u><a onclick="ChangeWindow('LogIn','SignUp')">Sign Up</a></u></span>
                 </p>

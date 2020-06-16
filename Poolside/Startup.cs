@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Logic;
 using DAL.Interfaces;
 using DAL.Access.Test;
+using DAL.Access;
 
 namespace Poolside
 {
@@ -39,6 +40,7 @@ namespace Poolside
             services.AddRazorPages();
             services.AddSession();
             services.AddScoped<IAccountAccess, TAccountAccess>();
+            //services.AddScoped<IAccountAccess, AccountAccess>();
             services.AddScoped<UserLogic>();
         }
 

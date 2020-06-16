@@ -21,13 +21,13 @@
             </span>
             <button class="link"><span><span style="text-decoration:underline;">A</span>bout</span></button>
             <button class="link" disabled><span><span style="text-decoration:underline;">T</span>hemes</span></button><!--TODO: add themes-->
-            @if (true)//TODO: add sessions
+            @if (ViewBag.FakeLogin == null || ViewBag.FakeLogin == false)//TODO: add sessions
             {
-                <button class="link" onclick="OpenWindowCoord('LoginWindow',1,1)"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
+                <button class="link" onclick="OpenWindowCoord('LoginWindow',1130,415)"><span><span style="text-decoration:underline;">S</span>ign In/Up</span></button>
             }
             else
             {
-                <button class="link"><span><span style="text-decoration:underline;">L</span>og Out</span></button>
+                <button class="link" onclick="OpenWindowCoord('LogoutWindow',1130,415)"><span><span style="text-decoration:underline;">L</span>og Out</span></button>
             }
         </span>
         <span class="right-side">

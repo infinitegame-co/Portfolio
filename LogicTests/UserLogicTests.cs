@@ -37,7 +37,7 @@ namespace Logic.Tests
         {
             Logic = new UserLogic(AccountAccess);
             AccountDTO Account = new AccountDTO(0, "Jim@Jim.com", "Jim", "Test123");
-            AccountDTO Hashed = new AccountDTO(0, "47357D5BF135BAFB5E2CEF5C1EB0C050DF24BD3DF98EBC1C904D63C0CFF11C49", "96BD923157C731249A40C36426FC326062AD3B2904ED6792B3F404F223D35651", "D9B5F58F0B38198293971865A14074F59EBA3E82595BECBE86AE51F1D9F1F65E");
+            AccountDTO Hashed = new AccountDTO(0, "47357D5BF135BAFB5E2CEF5C1EB0C050DF24BD3DF98EBC1C904D63C0CFF11C49", "Jim", "D9B5F58F0B38198293971865A14074F59EBA3E82595BECBE86AE51F1D9F1F65E");
             AccountDTO Result = Logic.LogIn(Account);
             Assert.AreEqual(Hashed.Id, Result.Id);
             Assert.AreEqual(Hashed.Email, Result.Email);
@@ -93,7 +93,7 @@ namespace Logic.Tests
         {
             Logic = new UserLogic(AccountAccess);
             AccountDTO Account = new AccountDTO(1, "John@Jim.com", "John", "Test345");
-            AccountDTO Hashed = new AccountDTO(1, "A16AC45023443BD3A321A7A9B30BF7C02110D3670159934F242516E19546F66B", "A8CFCD74832004951B4408CDB0A5DBCD8C7E52D43F7FE244BF720582E05241DA", "405B43154D5170F5F7C2D6DDCB7492937D382609D96556C5C3BFC065380A29D6");
+            AccountDTO Hashed = new AccountDTO(1, "A16AC45023443BD3A321A7A9B30BF7C02110D3670159934F242516E19546F66B", "John", "405B43154D5170F5F7C2D6DDCB7492937D382609D96556C5C3BFC065380A29D6");
             AccountDTO Result = Logic.LogIn(Account);
             Assert.IsTrue(Result == null);
         }
@@ -102,7 +102,7 @@ namespace Logic.Tests
         {
             Logic = new UserLogic(AccountAccess);
             AccountDTO Account = new AccountDTO(0, "Jim@Jim.com", "Jim", "Test345");
-            AccountDTO Hashed = new AccountDTO(0, "47357D5BF135BAFB5E2CEF5C1EB0C050DF24BD3DF98EBC1C904D63C0CFF11C49", "96BD923157C731249A40C36426FC326062AD3B2904ED6792B3F404F223D35651", "D9B5F58F0B38198293971865A14074F59EBA3E82595BECBE86AE51F1D9F1F65E");
+            AccountDTO Hashed = new AccountDTO(0, "47357D5BF135BAFB5E2CEF5C1EB0C050DF24BD3DF98EBC1C904D63C0CFF11C49", "Jim", "D9B5F58F0B38198293971865A14074F59EBA3E82595BECBE86AE51F1D9F1F65E");
             AccountDTO Result = Logic.LogIn(Account);
             Assert.IsTrue(Result == null);
             //Assert.AreNotEqual(Hashed.Password, Result.Password);//this is what it should be checking

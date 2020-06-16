@@ -24,9 +24,9 @@ namespace Logic
                 if (CheckPasswords(Login))
                 {
                     //return positive login back
-                    Login.Email = CreateHashedString(Login.Email);
-                    Login.NickName = CreateHashedString(Login.NickName);
                     Login.Password = CreateHashedString(Login.Password);
+                    Login.NickName = Account.Get(Login).NickName;
+                    Login.Email = CreateHashedString(Login.Email);
                     return Login;
                 }
             }
