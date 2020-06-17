@@ -30,13 +30,16 @@ namespace Poolside.Controllers
         {
             //Debug.Print(loginViewModel.Email);
             //Debug.Print(loginViewModel.Password);
+            GlobalViewModel global = new GlobalViewModel();
             AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
             AccountDTO user = _User.LogIn(account);
+
             if (user != null)
             {
                 ViewBag.FakeLogin = true;
                 ViewBag.Nickname = user.NickName;
-                return View("../Home/Index", _Convert.ConvertToLoginViewModel(user));
+                global.loginViewModel = _Convert.ConvertToLoginViewModel(user);
+                return View("../Home/Index", global);
             }
             return View("../Home/Index");
         }
@@ -52,9 +55,10 @@ namespace Poolside.Controllers
             //Debug.Print(loginViewModel.Email + "A");
             //Debug.Print(loginViewModel.Password + "A");
             // _User.CreateAccount();
+            GlobalViewModel global = new GlobalViewModel();
             AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
             _User.CreateAccount(account);
-            return View("../Home/Index", loginViewModel);
+            return View("../Home/Index", global);
         }
 
         public IActionResult Forgot()

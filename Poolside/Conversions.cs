@@ -58,5 +58,18 @@ namespace Poolside
             string nickname = Model.UserNickName;
             return new GuestBookDTO(id, date, message, nickname);
         }
+        /// <summary>
+        /// Convert an accountDTO to a LoginViewModel;
+        /// </summary>
+        /// <param name="login"> DTO to convert to LoginViewModel</param>
+        /// <returns>The LoginViewModel related to this login data</returns>
+        internal GuestBookViewModel ConvertToGuestBookViewModel(GuestBookDTO DTO)
+        {
+            GuestBookViewModel Model = new GuestBookViewModel();
+            Model.UserNickName = DTO.NickName;
+            Model.PostDate = DTO.PostDate;
+            Model.Message = DTO.Message;
+            return Model;
+        }
     }
 }

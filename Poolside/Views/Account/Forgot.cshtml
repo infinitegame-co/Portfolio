@@ -2,11 +2,14 @@
 
 
 <div>
-    <form>
-        <input type="email" placeholder="Enter your email" class="SignUp-Input" />
-        <button type="submit" class="SignUp-Input-Button">
-            <span style="user-select:none;">Remind Me</span>
-        </button>
-    </form>
+    @using (Html.BeginForm("Forgot", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+    {
+        <form>
+            <input type="email" placeholder="Enter your email" class="SignUp-Input" />
+            <button type="submit" class="SignUp-Input-Button">
+                <span style="user-select:none;">Remind Me</span>
+            </button>
+        </form>
+    }
     <span><u><a onclick="QuickSwap('LogInForgot','LogInReg')">Back to login</a></u></span>
 </div>
