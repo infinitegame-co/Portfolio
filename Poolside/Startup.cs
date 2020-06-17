@@ -16,6 +16,7 @@ using Logic;
 using DAL.Interfaces;
 using DAL.Access.Test;
 using DAL.Access;
+using DAL.Context;
 
 namespace Poolside
 {
@@ -31,6 +32,8 @@ namespace Poolside
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            DBConnection.CONNECTIONSTRING = Configuration.GetConnectionString("DefaultConnection");
+            IServiceCollection connection = services.AddSingleton(DBConnection.CONNECTIONSTRING);
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -39,9 +42,14 @@ namespace Poolside
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSession();
-            services.AddScoped<IAccountAccess, TAccountAccess>();
-            //services.AddScoped<IAccountAccess, AccountAccess>();
+            services.AddScoped<IAccountAccess, AccountAccess>();
+            services.AddScoped<IPortfolioAccess, PortfolioAccess>();
+            services.AddScoped<IGuestBookAccess, GuestBookAccess>();
             services.AddScoped<UserLogic>();
+            services.AddScoped<AdminInteractions>();
+            services.AddScoped<ConversionLogic>();
+            services.AddScoped<HomePageInteractions>();
+            services.AddScoped<UserInteractions>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

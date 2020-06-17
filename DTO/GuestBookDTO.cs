@@ -13,6 +13,10 @@ namespace DTO
         public string Message { get; set; }
         public string NickName { get; set; }
 
+        public GuestBookDTO()
+        {
+
+        }
         public GuestBookDTO(int Id,DateTime PostDate, string Message, string NickName)
         {
             this.Id = Id;

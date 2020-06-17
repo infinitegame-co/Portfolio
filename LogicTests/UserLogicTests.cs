@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DTO;
+using DAL.Interfaces;
+using DAL.Access;
+using DAL.Context;
 using DAL.Access.Test;
 using System.IO;
 
@@ -12,9 +15,9 @@ namespace Logic.Tests
     [TestClass()]
     public class UserLogicTests
     {
-        TAccountAccess AccountAccess = new TAccountAccess();
+        IAccountAccess AccountAccess = new TAccountAccess();
         UserLogic Logic;
-
+        string connectionstring = "Server=(localdb)\\mssqllocaldb;Database=aspnet-Poolside-A2C6F849-E40F-458F-BEB7-876F3EA78497;Trusted_Connection=True;MultipleActiveResultSets=true";
         #region Successful
         [TestMethod()]
         public void CheckPasswordsSuccessTest()
@@ -23,6 +26,7 @@ namespace Logic.Tests
             AccountDTO Login = new AccountDTO(0, "Jim@Jim.com", "Jim", "Test123");
             bool result = Logic.CheckPasswords(Login);
             Assert.IsTrue(result);
+            //Assert.Fail();
         }
         [TestMethod()]
         public void CreateAccountSuccessTest()
@@ -30,7 +34,12 @@ namespace Logic.Tests
             Logic = new UserLogic(AccountAccess);
             AccountDTO Account = new AccountDTO(1, "John@Jim.com", "John", "Test234");
             Logic.CreateAccount(Account);
-            Assert.IsTrue(AccountAccess.GetLatestEntry() == Account);
+            AccountDTO result = AccountAccess.GetLatestEntry();
+            Assert.IsTrue(result == Account);
+            if (AccountAccess.GetType() == typeof(DAL.Access.AccountAccess))
+            {
+                AccountAccess.Delete(result.Id);
+            }
         }
         [TestMethod()]
         public void LogInSuccessTest()
@@ -48,7 +57,7 @@ namespace Logic.Tests
         #endregion
 
         #region Failure
-        [TestMethod()]//, ExpectedException(typeof(Exception))]//would work as well but is not what is desired 
+        [TestMethod()]
         public void CreateAccountTakenEmailTest()
         {
             Logic = new UserLogic(AccountAccess);
@@ -80,7 +89,7 @@ namespace Logic.Tests
             bool result = Logic.CheckPasswords(Login);
             Assert.IsFalse(result);
         }
-        [TestMethod(), ExpectedException(typeof(FileNotFoundException))]
+        [TestMethod()]
         public void CheckPasswordNonExistingUserTest()
         {
             Logic = new UserLogic(AccountAccess);

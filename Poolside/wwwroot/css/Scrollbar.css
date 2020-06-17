@@ -36,10 +36,6 @@
         background-image: url('../img/ui/verticalscrollbarbackground.png');
     }
 
-::-webkit-resizer {
-    background: red;
-}
-
 ::-webkit-scrollbar-corner {
     background: #FFC9C9;
     border: 1px solid black;

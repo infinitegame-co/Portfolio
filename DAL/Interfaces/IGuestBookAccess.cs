@@ -5,7 +5,10 @@ using DTO;
 
 namespace DAL.Interfaces
 {
-    interface IGuestBookAccess : ICRUDAccess<GuestBookDTO>
+    public interface IGuestBookAccess : ICRUDAccess<GuestBookDTO>
     {
+
+        public List<GuestBookDTO> GetAllEntries();
+        public List<GuestBookDTO> GetAmountOfEntries(int amount);
     }
 }

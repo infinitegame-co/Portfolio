@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using DAL.Interfaces;
 using DAL.Models;
@@ -12,12 +13,18 @@ namespace DAL.Access.Test
         TestData test = new TestData();
         public void Create(PortfolioDTO obj)
         {
-            throw new NotImplementedException();
+            obj.Id = test.Portfolios.Count;
+            test.Portfolios.Add(obj);
         }
 
         public void Delete(int index)
         {
-            throw new NotImplementedException();
+            if (!(index > (test.Portfolios.Count - 1)) && !(index < 0))
+            {
+                test.Portfolios.RemoveAt(index);
+                return;
+            }
+            throw new IndexOutOfRangeException();
         }
 
         public PortfolioDTO Get(PortfolioDTO obj)
@@ -44,7 +51,11 @@ namespace DAL.Access.Test
 
         public PortfolioDTO GetLatestEntry()
         {
-            throw new NotImplementedException();
+            if (test.Portfolios.Count > 0)
+            {
+                return test.Portfolios[test.Portfolios.Count - 1];
+            }
+            return null;
         }
 
         public PortfolioDTO Read(int index)
@@ -56,7 +67,7 @@ namespace DAL.Access.Test
                     return port;
                 }
             }
-            return null;
+            throw new FileNotFoundException();
         }
 
         public void Update(PortfolioDTO Original, PortfolioDTO Replacement)

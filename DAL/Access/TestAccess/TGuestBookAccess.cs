@@ -8,9 +8,11 @@ namespace DAL.Access.Test
 {
     public class TGuestBookAccess : IGuestBookAccess
     {
+        private readonly TestData test = new TestData();
         public void Create(GuestBookDTO obj)
         {
-            throw new NotImplementedException();
+            obj.Id = test.GuestBookEntries.Count;
+            test.GuestBookEntries.Add(obj);
         }
 
         public void Delete(int index)
@@ -23,9 +25,23 @@ namespace DAL.Access.Test
             throw new NotImplementedException();
         }
 
-        public GuestBookDTO GetLatestEntry()
+        public List<GuestBookDTO> GetAllEntries()
         {
             throw new NotImplementedException();
+        }
+
+        public List<GuestBookDTO> GetAmountOfEntries(int amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GuestBookDTO GetLatestEntry()
+        {
+            if (test.GuestBookEntries.Count > 0)
+            {
+                return test.GuestBookEntries[test.GuestBookEntries.Count - 1];
+            }
+            return null;
         }
 
         public GuestBookDTO Read(int index)

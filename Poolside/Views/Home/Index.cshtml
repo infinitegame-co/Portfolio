@@ -81,18 +81,37 @@
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
             <div class="background">
                 <div id="SignUp" style="display:inline-block;">
-                    @await Html.PartialAsync("../Account/Register.cshtml")
+                    @await Html.PartialAsync("../Account/Register.cshtml", new LoginViewModel())
                 </div>
                 <div id="LogIn" style="display:none;">
-                    @await Html.PartialAsync("../Account/Login.cshtml")
+                    @await Html.PartialAsync("../Account/Login.cshtml", new LoginViewModel())
                 </div>
                 <div class="SignUp" id="LogInForgot" style="display:none;">
-                    @await Html.PartialAsync("../Account/Forgot.cshtml")
+                    @await Html.PartialAsync("../Account/Forgot.cshtml", new LoginViewModel())
                 </div>
             </div>
         </div>
     </div>
 
+    <div id="GuestBookWindow">
+        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
+            <div class="background">
+                <div class="Drag-header">
+                    <span class="Bt-Close" onclick="CloseWindow('GuestBookWindow')"></span>
+                    <img src="~/img/UI/DragBar.png" class="spacer" />
+                    <h2 class="Content-Title">
+                        GuestBook
+                    </h2>
+                </div>
+                <div id="GuestBook" style="display:inline-block;">
+                    @await Html.PartialAsync("../GuestBook/GuestBook.cshtml", new GuestBookViewModel())
+                </div>
+                <ul>
+                    @*get x amount of guestbooke entries and load them in here*@
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div id="LogoutWindow">
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:none;">
@@ -199,6 +218,15 @@
                     <span>TestPortfolioPage.txt</span>
                 </div>
             </li>
+            <li class="Icon-Item" onclick="OpenWindowCoord('GuestBookWindow',100,100)">
+                <div>
+                    <div class="Icon-Wrapper">
+                        <img src="~/img/UI/Desktop/GuestBook.png" />
+                    </div>
+                    <span>GuestBook</span>
+                </div>
+            </li>
+
         </ul>
         @*<ul class="Icon-Row">
 

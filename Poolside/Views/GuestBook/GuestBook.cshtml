@@ -1,0 +1,39 @@
+﻿@model Poolside.Models.GuestBookViewModel
+
+<div>
+    @if (ViewBag.FakeLogin == null || ViewBag.FakeLogin == false)
+    {
+        <div style="padding: 20px;">
+            <div>
+
+                <h2 class="Content-Title" style="left:0;">
+                    <img src="~/img/UI/bullet.png" />
+                    Log in to write in the guestbook
+                    <img src="~/img/UI/bullet.png" />
+                </h2>
+            </div>
+            <button class="SignUp-Input-Button" onclick="OpenWindowCoord('LoginWindow',1130,415)">
+                <span style="user-select:none;">Log In</span>
+            </button>
+        </div>
+    }
+    else
+    {
+        @using (Html.BeginForm("GuestBook", "GuestBook", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+        {
+            <form>
+                <textarea maxlength="140" placeholder="" style="resize:none;" asp-for="Message"></textarea>
+                <div>
+                    <div>
+                        <div>
+                            <label>Nickname</label><input type="text" placeholder="Name" value=@ViewBag.Nickname asp-for="UserNickName" />
+                        </div>
+                        <button type="submit" class="SignUp-Input-Button">
+                            <span style="user-select:none;">Post</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        }
+    }
+</div>

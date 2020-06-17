@@ -35,8 +35,10 @@ namespace Poolside.Controllers
             if (user != null)
             {
                 ViewBag.FakeLogin = true;
+                ViewBag.Nickname = user.NickName;
+                return View("../Home/Index", _Convert.ConvertToLoginViewModel(user));
             }
-            return View("../Home/Index", _Convert.ConvertToLoginViewModel(user));
+            return View("../Home/Index");
         }
 
         public IActionResult Register()
@@ -50,6 +52,8 @@ namespace Poolside.Controllers
             //Debug.Print(loginViewModel.Email + "A");
             //Debug.Print(loginViewModel.Password + "A");
             // _User.CreateAccount();
+            AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
+            _User.CreateAccount(account);
             return View("../Home/Index", loginViewModel);
         }
 

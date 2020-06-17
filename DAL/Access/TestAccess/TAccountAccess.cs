@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using DAL.Access.Test;
 using DAL.Interfaces;
@@ -30,7 +31,27 @@ namespace DAL.Access.Test
                     return ac;
                 }
             }
-            throw new FileNotFoundException();
+            return null;
+        }
+
+        public List<string> GetAllEmails()
+        {
+            List<string> res = new List<string>();
+            foreach (AccountDTO ac in Test.Users)
+            {
+                res.Add(ac.Email);
+            }
+            return res;
+        }
+
+        public List<string> GetAllNicknames()
+        {
+            List<string> res = new List<string>();
+            foreach (AccountDTO ac in Test.Users)
+            {
+                res.Add(ac.NickName);
+            }
+            return res;
         }
 
         public AccountDTO GetLatestEntry()
@@ -56,7 +77,7 @@ namespace DAL.Access.Test
                     return ac;
                 }
             }
-            throw new FileNotFoundException();
+            return null;
         }
 
         public void Update(AccountDTO Original, AccountDTO Replacement)

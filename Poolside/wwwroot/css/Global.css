@@ -10,3 +10,7 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 .cursor {
     cursor: url(../img/cursor/cursor.e07882b3.svg), auto !important;
 }
+
+textarea {
+    font-family: Chicago;
+}

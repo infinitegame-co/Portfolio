@@ -15,6 +15,10 @@ namespace DTO
         public string NickName { get; set; }
         public string Password { get; set; }
 
+        public AccountDTO()
+        {
+
+        }
         public AccountDTO(int Id, string Email, string NickName ,string Password)
         {
             this.Id = Id;
