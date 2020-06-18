@@ -43,6 +43,7 @@ namespace Poolside
             Model.Email = DTO.Email;
             Model.NickName = DTO.NickName;
             Model.Password = DTO.Password;
+            Model.IsAdmin = DTO.IsAdmin;
             return Model;
         }
         /// <summary>
@@ -70,6 +71,16 @@ namespace Poolside
             Model.PostDate = DTO.PostDate;
             Model.Message = DTO.Message;
             return Model;
+        }
+
+        internal List<GuestBookViewModel> ConvertToGuestBookViewModelList(List<GuestBookDTO> DTO)
+        {
+            List<GuestBookViewModel> gbvm = new List<GuestBookViewModel>();
+            foreach (GuestBookDTO gb in DTO)
+            {
+                gbvm.Add(ConvertToGuestBookViewModel(gb));
+            }
+            return gbvm;
         }
     }
 }

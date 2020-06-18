@@ -27,6 +27,11 @@ function QuickSwap(From, To) {
     SwapWindow.setAttribute('style', "display: inherit");
 }
 
+function OpenAndChangeWindow(WindowID, From, To, x, y) {
+    OpenWindowCoord(WindowID, x, y);
+    ChangeWindow(From, To);
+}
+
 
 
 //######JqueryUI#####

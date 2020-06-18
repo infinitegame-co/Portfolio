@@ -28,20 +28,19 @@ namespace Poolside.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
-            //Debug.Print(loginViewModel.Email);
-            //Debug.Print(loginViewModel.Password);
             GlobalViewModel global = new GlobalViewModel();
-            AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
-            AccountDTO user = _User.LogIn(account);
-
-            if (user != null)
+            if (ModelState.IsValid)
             {
-                ViewBag.FakeLogin = true;
-                ViewBag.Nickname = user.NickName;
-                global.loginViewModel = _Convert.ConvertToLoginViewModel(user);
-                return View("../Home/Index", global);
+                AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
+                AccountDTO user = _User.LogIn(account);
+                if (user != null)
+                {
+                    ViewBag.FakeLogin = true;
+                    ViewBag.Nickname = user.NickName;
+                    global.VMlogin = _Convert.ConvertToLoginViewModel(user);
+                }
             }
-            return View("../Home/Index");
+            return View("../Home/Index", global);
         }
 
         public IActionResult Register()
@@ -52,12 +51,12 @@ namespace Poolside.Controllers
         [HttpPost]
         public IActionResult Register(LoginViewModel loginViewModel)
         {
-            //Debug.Print(loginViewModel.Email + "A");
-            //Debug.Print(loginViewModel.Password + "A");
-            // _User.CreateAccount();
             GlobalViewModel global = new GlobalViewModel();
-            AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
-            _User.CreateAccount(account);
+            if (ModelState.IsValid)
+            {
+                AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
+                _User.CreateAccount(account);
+            }
             return View("../Home/Index", global);
         }
 
@@ -69,7 +68,8 @@ namespace Poolside.Controllers
         [HttpPost]
         public IActionResult Forgot(LoginViewModel loginViewModel)
         {
-            return View();
+            GlobalViewModel global = new GlobalViewModel();
+            return View("../Home/Index", global);
         }
     }
 }

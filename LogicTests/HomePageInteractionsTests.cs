@@ -10,7 +10,7 @@ namespace Logic.Tests
     [TestClass()]
     public class HomePageInteractionsTests
     {
-        HomePageInteractions Home = new HomePageInteractions();
+        HomePageInteractions Home;
         [TestMethod()]
         #region Successful
         public void GetAllPortfoliosTest()

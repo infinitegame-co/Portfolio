@@ -28,6 +28,7 @@ namespace Logic
                 {
                     //return positive login back
                     Login.Password = Convert.CreateHashedString(Login.Password);
+                    Login.IsAdmin = Account.Get(Login).IsAdmin;
                     Login.NickName = Account.Get(Login).NickName;
                     Login.Email = Convert.CreateHashedString(Login.Email);
                     return Login;

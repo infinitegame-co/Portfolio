@@ -11,6 +11,7 @@ namespace Poolside.Models
         public string NickName { get; set; }
         [Required, MinLength(6)]
         public string Password { get; set; }
+        public bool IsAdmin { get; set; }
 
         public LoginViewModel()
         {

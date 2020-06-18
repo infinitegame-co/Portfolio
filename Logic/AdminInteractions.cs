@@ -10,9 +10,11 @@ namespace Logic
     public class AdminInteractions
     {
         private readonly IPortfolioAccess portfolioAccess;
-        public AdminInteractions(IPortfolioAccess portfolioAccess)
+        private readonly IGuestBookAccess guestBookAccess;
+        public AdminInteractions(IPortfolioAccess portfolioAccess, IGuestBookAccess guestBookAccess)
         {
             this.portfolioAccess = portfolioAccess;
+            this.guestBookAccess = guestBookAccess;
         }
         public void CreatePortFolio(PortfolioDTO portfolio)
         {
@@ -38,6 +40,12 @@ namespace Logic
         public void DeleteFile()
         {
 
+        }
+
+        public void DeleteGuestBookEntry(GuestBookDTO guestBook)
+        {
+            int index = guestBookAccess.Get(guestBook).Id;
+            guestBookAccess.Delete(index);
         }
 
         public void EditPortfolio(int index, PortfolioDTO Changes)

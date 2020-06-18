@@ -41,15 +41,17 @@ namespace Logic
 
         public void WriteInGuestBook(GuestBookDTO guestBook)
         {
-            if (!String.IsNullOrEmpty(guestBook.NickName))
+            if (!String.IsNullOrEmpty(guestBook.Message))
             {
-                guestBookAccess.Create(guestBook);
-                return;
+
+                if (!String.IsNullOrEmpty(guestBook.NickName))
+                {
+                    guestBookAccess.Create(guestBook);
+                    return;
+                }
+                throw new Exception("No nickname found");
             }
-            throw new Exception("No nickname found");
+            throw new Exception("No message found");
         }
-
-
-
     }
 }

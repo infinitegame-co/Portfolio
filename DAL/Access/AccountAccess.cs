@@ -49,7 +49,7 @@ namespace DAL.Access
 
             using (SqlConnection conn = new SqlConnection(DBConnection.CONNECTIONSTRING))
             {
-                using (SqlCommand command = new SqlCommand("SELECT Id,NickName,Email,Password FROM[user] " +
+                using (SqlCommand command = new SqlCommand("SELECT Id,NickName,Email,Password,IsAdmin FROM[user] " +
                     "WHERE [user].Email = @Email AND [user].Password = @Password", conn))
                 {
                     conn.Open();
@@ -63,12 +63,13 @@ namespace DAL.Access
                         string nickname = reader.GetString(1);
                         string email = reader.GetString(2);
                         string password = reader.GetString(3);
-                        AccountDTO Data = new AccountDTO(id, email, nickname, password);
+                        bool Admin = Convert.ToBoolean(reader.GetString(4));
+                        AccountDTO Data = new AccountDTO(id, email, nickname, password, Admin);
 
+                        conn.Close();
                         return Data;
                     }
 
-                    conn.Close();
                     return EmptyDTO;
                 }
             }
@@ -129,12 +130,13 @@ namespace DAL.Access
                         string nickname = reader.GetString(1);
                         string email = reader.GetString(2);
                         string password = reader.GetString(3);
-                        AccountDTO Data = new AccountDTO(id, email, nickname, password);
+                        bool Admin = Convert.ToBoolean(reader.GetString(4));
+                        AccountDTO Data = new AccountDTO(id, email, nickname, password, Admin);
 
+                        conn.Close();
                         return Data;
                     }
 
-                    conn.Close();
                     return EmptyDTO;
                 }
             }
@@ -163,12 +165,13 @@ namespace DAL.Access
                         string nickname = reader.GetString(1);
                         string email = reader.GetString(2);
                         string password = reader.GetString(3);
-                        AccountDTO Data = new AccountDTO(id, email, nickname, password);
+                        bool Admin = Convert.ToBoolean(reader.GetString(4));
+                        AccountDTO Data = new AccountDTO(id, email, nickname, password, Admin);
 
+                        conn.Close();
                         return Data;
                     }
 
-                    conn.Close();
                     return EmptyDTO;
                 }
             }

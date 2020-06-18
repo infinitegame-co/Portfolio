@@ -20,17 +20,21 @@ namespace Poolside.Controllers
         }
         public IActionResult GuestBook()
         {
-            return PartialView();
+            return View();
         }
 
         [HttpPost]
         public IActionResult GuestBook(GuestBookViewModel guestBook)
         {
-            DateTime now = DateTime.Now;
-            guestBook.PostDate = new DateTime(1997, now.Month, now.Day, now.Hour, now.Minute, now.Second);
-            GuestBookDTO dto = conversions.ConvertToGuestBookDTO(guestBook);
-            userInteractions.WriteInGuestBook(dto);
-            return PartialView();
+            if (ModelState.IsValid)
+            {
+                DateTime now = DateTime.Now;
+                guestBook.PostDate = new DateTime(1997, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+                GuestBookDTO dto = conversions.ConvertToGuestBookDTO(guestBook);
+                userInteractions.WriteInGuestBook(dto);
+            }
+            return View("../Home/Index", new GlobalViewModel());
+
         }
     }
 }

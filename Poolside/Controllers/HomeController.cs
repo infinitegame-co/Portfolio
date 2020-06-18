@@ -15,10 +15,12 @@ namespace Poolside.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly HomePageInteractions homePageInteractions;
+        private readonly AdminInteractions adminInteractions;
         private readonly Conversions conversion;
-        public HomeController(ILogger<HomeController> logger, HomePageInteractions homePageInteractions)
+        public HomeController(ILogger<HomeController> logger, HomePageInteractions homePageInteractions, AdminInteractions adminInteractions)
         {
             this.homePageInteractions = homePageInteractions;
+            this.adminInteractions = adminInteractions;
             conversion = new Conversions();
             _logger = logger;
         }
@@ -27,13 +29,8 @@ namespace Poolside.Controllers
         {
             GlobalViewModel model = new GlobalViewModel();
             IndexViewModel indexmodel = new IndexViewModel();
-            List<GuestBookDTO> res = homePageInteractions.GetAllGuestBooks();
-
-            foreach (GuestBookDTO gb in res)
-            {
-                indexmodel.GuestBookEntries.Add(conversion.ConvertToGuestBookViewModel(gb));
-            }
-            model.indexViewModel = indexmodel;
+            indexmodel.GuestBookEntries = conversion.ConvertToGuestBookViewModelList(homePageInteractions.GetAllGuestBooks());
+            model.VMindex = indexmodel;
             return View(model);
         }
 
@@ -41,6 +38,13 @@ namespace Poolside.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpPost]
+        public IActionResult DeleteEntry(GlobalViewModel glob)
+        {
+            GuestBookDTO DTO = conversion.ConvertToGuestBookDTO(glob.VMguestBook);
+            adminInteractions.DeleteGuestBookEntry(DTO);
+            return View("../Home/Index", new GlobalViewModel());
         }
     }
 }

@@ -9,13 +9,13 @@
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
             <div class="background">
                 <div id="SignUp" style="display:inline-block;">
-                    @await Html.PartialAsync("../Account/Register.cshtml",Model.loginViewModel)
+                    @await Html.PartialAsync("../Account/Register.cshtml", Model.VMlogin)
                 </div>
                 <div id="LogIn" style="display:none;">
-                    @await Html.PartialAsync("../Account/Login.cshtml", Model.loginViewModel)
+                    @await Html.PartialAsync("../Account/Login.cshtml", Model.VMlogin)
                 </div>
                 <div class="SignUp" id="LogInForgot" style="display:none;">
-                    @await Html.PartialAsync("../Account/Forgot.cshtml", Model.loginViewModel)
+                    @await Html.PartialAsync("../Account/Forgot.cshtml", Model.VMlogin)
                 </div>
             </div>
         </div>
@@ -32,16 +32,27 @@
                     </h2>
                 </div>
                 <div id="GuestBook" style="display:inline-block;">
-                    @await Html.PartialAsync("../GuestBook/GuestBook.cshtml", Model.guestBookViewModel)
+                    @await Html.PartialAsync("../GuestBook/GuestBook.cshtml", Model.VMguestBook)
                 </div>
                 <div style="height:253px;">
-                    <ul style="height: calc(100% + 2px); overflow:auto">
-                        @foreach (GuestBookViewModel gb in Model.indexViewModel.GuestBookEntries)
+                    <ul style="height: calc(100% + 2px); overflow:auto; left:0; list-style: none;">
+                        @foreach (GuestBookViewModel gb in Model.VMindex.GuestBookEntries)
                         {
-                            <li>
+                            <li style="border: 1px solid #000;">
+                                @*@if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
+                                {
+                                    @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        <form>//TODO: fix this asap, IActionResult does not receive guestbook value
+                                            <input type="hidden" asp-for="VMguestBook" value=@gb />
+                                            <button type="submit">
+                                            </button>
+                                        </form>
+                                    }
+                                }*@
                                 <p>
                                     <bold>@gb.UserNickName </bold>
-                                    @gb.PostDate
+                                    @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
                                 </p>
                                 <p style="overflow-wrap:break-word">
                                     @gb.Message
@@ -94,7 +105,11 @@
 
     <div id="TestPortfolioPage">
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:none;">
-            <div class="Bottom-image" style="position:absolute; bottom: 0; left: 0; width: calc(100% - 18px);height: 12px;"></div>
+            <div class="Bottom-image" style="        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 18px);
+        height: 12px;"></div>
             <div class="background">
                 <div class="Drag-header">
                     <span class="Bt-Close" onclick="CloseWindow('TestPortfolioPage')"></span>
