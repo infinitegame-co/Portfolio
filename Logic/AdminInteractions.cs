@@ -65,6 +65,13 @@ namespace Logic
             portfolioAccess.Update(portfolioAccess.Get(original), Update);
         }
 
+        public void DeleteLatestGuestBookEntry()
+        {
+            List<GuestBookDTO> all = guestBookAccess.GetAllEntries();
+            GuestBookDTO last = all[all.Count - 1];
+            DeleteGuestBookEntry(last);
+        }
+
         public void DeletePortFolio(int index)
         {
             if (portfolioAccess.Read(index) != null)

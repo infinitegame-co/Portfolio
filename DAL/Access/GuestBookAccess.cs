@@ -30,7 +30,17 @@ namespace DAL.Access
 
         public void Delete(int index)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(DBConnection.CONNECTIONSTRING))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("DELETE FROM[GuestBook] WHERE Id = @Id", conn))
+                {
+                    command.Parameters.AddWithValue("Id", index);
+
+                    command.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
 
         public GuestBookDTO Get(GuestBookDTO obj)

@@ -36,29 +36,57 @@
                 </div>
                 <div style="height:253px;">
                     <ul style="height: calc(100% + 2px); overflow:auto; left:0; list-style: none;">
-                        @foreach (GuestBookViewModel gb in Model.VMindex.GuestBookEntries)
+                        @for (int i = 0; i < Model.VMindex.GuestBookEntries.Count; i++)
                         {
                             <li style="border: 1px solid #000;">
-                                @*@if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
+                                @if (i == 0)
+                                {
+                                    @if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
                                     {
                                         @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
                                         {
-                                            <form>//TODO: fix this asap, IActionResult does not receive guestbook value
+                                            <form asp-action="DeleteEntry">
+                                                @*TODO: fix this asap, IActionResult does not receive guestbook value*@
+                                                <button type="submit">
+                                                </button>
+                                            </form>
+                                        }
+                                    }
+                                }
+                                <p>
+                                    <bold>@Model.VMindex.GuestBookEntries[i].UserNickName </bold>
+                                    @Model.VMindex.GuestBookEntries[i].PostDate.ToString("HH:mm  dd/MM/yyyy")
+                                </p>
+                                <p style="overflow-wrap:break-word">
+                                    @Model.VMindex.GuestBookEntries[i].Message
+                                </p>
+                            </li>
+                        }
+
+                        @*@foreach (GuestBookViewModel gb in Model.VMindex.GuestBookEntries)
+                            {
+                                <li style="border: 1px solid #000;">
+                                    @if (Model.VMlogin != null && Model.VMlogin.NickName == gb.UserNickName)
+                                    {
+                                        @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                        {
+                                            <form asp-action="DeleteEntry">
+                                                TODO: fix this asap, IActionResult does not receive guestbook value
                                                 <input type="hidden" asp-for="VMguestBook" value=@gb />
                                                 <button type="submit">
                                                 </button>
                                             </form>
                                         }
-                                    }*@
-                                <p>
-                                    <bold>@gb.UserNickName </bold>
-                                    @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
-                                </p>
-                                <p style="overflow-wrap:break-word">
-                                    @gb.Message
-                                </p>
-                            </li>
-                        }
+                                    }
+                                    <p>
+                                        <bold>@gb.UserNickName </bold>
+                                        @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
+                                    </p>
+                                    <p style="overflow-wrap:break-word">
+                                        @gb.Message
+                                    </p>
+                                </li>
+                            }*@
                     </ul>
                 </div>
             </div>
@@ -78,6 +106,8 @@
                 </div>
                 <div class="Box-Outer">
                     <img src="~/Content/Images/loginSignup/signup1.png" class="Box-Inner" />
+                    <br />
+                    <input type="submit" value="Are you sure?" class="SignUp-Input-Button" />
                 </div>
                 <div id="resizable" class="scale"></div>
             </div>
@@ -128,26 +158,6 @@
         </div>
     </div>
 
-    <div id="ErrorMessage">
-        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:inline-block;">
-            <div class="Bottom-image" style="position:absolute; bottom: 0; left: 0; width: calc(100% - 18px);height: 12px;"></div>
-            <div class="background">
-                <div class="Drag-header">
-                    <span class="Bt-Close" onclick="CloseWindow('ErrorMessage')"></span>
-                    <img src="~/img/UI/DragBar.png" class="spacer" style="width:57% !important;" />
-                    <h2 class="Content-Title">
-                        Latest Message
-                    </h2>
-                </div>
-                <div class="Box-Outer">
-                    <div style="background-color:white; width: 300px; height: 200px;" class="Box-Inner">
-                        <span style="padding-left: 5px;"> @Model.LatestMessage</span>
-                    </div>
-                </div>
-                <div class="scale"></div>
-            </div>
-        </div>
-    </div>
 
     <div id="PortfolioFolder">
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:none;">
@@ -207,5 +217,26 @@
         @*<ul class="Icon-Row">
 
             </ul>*@
+    </div>
+
+    <div id="ErrorMessage">
+        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:inline-block; left: 80%;top: 0px;">
+            <div class="Bottom-image" style="position:absolute; bottom: 0; left: 0; width: calc(100% - 18px);height: 12px;"></div>
+            <div class="background">
+                <div class="Drag-header">
+                    <span class="Bt-Close" onclick="CloseWindow('ErrorMessage')"></span>
+                    <img src="~/img/UI/DragBar.png" class="spacer" style="width:57% !important;" />
+                    <h2 class="Content-Title">
+                        Latest Message
+                    </h2>
+                </div>
+                <div class="Box-Outer">
+                    <div style="background-color:white; width: 300px; height: 200px;" class="Box-Inner">
+                        <span style="padding-left: 5px;"> @Model.LatestMessage</span>
+                    </div>
+                </div>
+                <div class="scale"></div>
+            </div>
+        </div>
     </div>
 </div>

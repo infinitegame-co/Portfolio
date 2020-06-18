@@ -30,7 +30,6 @@ namespace Poolside.Controllers
             GlobalViewModel model = new GlobalViewModel();
             IndexViewModel indexmodel = new IndexViewModel();
             indexmodel.GuestBookEntries = conversion.ConvertToGuestBookViewModelList(homePageInteractions.GetAllGuestBooks());
-            indexmodel.GuestBookEntries.Reverse();
             model.VMindex = indexmodel;
             model.LatestMessage = "Welcome, please Sign In";
             return View(model);
@@ -44,8 +43,7 @@ namespace Poolside.Controllers
         [HttpPost]
         public IActionResult DeleteEntry(GlobalViewModel glob)
         {
-            GuestBookDTO DTO = conversion.ConvertToGuestBookDTO(glob.VMguestBook);
-            adminInteractions.DeleteGuestBookEntry(DTO);
+            adminInteractions.DeleteLatestGuestBookEntry();
             GlobalViewModel model = new GlobalViewModel();
             model.LatestMessage = "Guestbook entry deleted succesfully";
             return View("../Home/Index", model);

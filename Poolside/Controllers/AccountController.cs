@@ -38,7 +38,7 @@ namespace Poolside.Controllers
                     ViewBag.FakeLogin = true;
                     ViewBag.Nickname = user.NickName;
                     global.VMlogin = _Convert.ConvertToLoginViewModel(user);
-                    global.LatestMessage = "Logged in successfully";
+                    global.LatestMessage = "Logged in successfully! \n You can now use the guestbook";
                 }
                 else
                 {
@@ -65,12 +65,12 @@ namespace Poolside.Controllers
             {
                 AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
                 _User.CreateAccount(account);
-                global.LatestMessage = "Account" + account.NickName + " made successfully";
+                global.LatestMessage = "Account" + account.NickName + " made successfully. \n You can now log in with these credentials.";
 
             }
             else
             {
-                global.LatestMessage = "No account made, one or more fields were not valid";
+                global.LatestMessage = "No account made, one or more fields were not valid. \n Please try again.";
             }
             return View("../Home/Index", global);
         }

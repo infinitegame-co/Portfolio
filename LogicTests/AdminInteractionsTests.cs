@@ -14,12 +14,13 @@ namespace Logic.Tests
     public class AdminInteractionsTests
     {
         IPortfolioAccess portfolioAccess = new TPortfolioAccess();
+        IGuestBookAccess guestBookAccess = new TGuestBookAccess();
         AdminInteractions Admin;
         [TestMethod()]
         #region successful
         public void CreatePortFolioSuccessTest()
         {
-            Admin = new AdminInteractions(portfolioAccess);
+            Admin = new AdminInteractions(portfolioAccess, guestBookAccess);
             PortfolioDTO portfolio = new PortfolioDTO(1, "TestTitle", new List<string>(), "Lorem Ipsum", DateTime.MinValue, new List<string>());
 
             Admin.CreatePortFolio(portfolio);
@@ -37,7 +38,7 @@ namespace Logic.Tests
         [TestMethod()]
         public void EditPortfolioSuccessTest()
         {
-            Admin = new AdminInteractions(portfolioAccess);
+            Admin = new AdminInteractions(portfolioAccess, guestBookAccess);
             PortfolioDTO Changes = new PortfolioDTO(0, "TestTitle", null, "Lorem Ipsum", DateTime.MinValue, null);
             PortfolioDTO Expected = new PortfolioDTO(0, "TestTitle", new List<string>(), "Lorem Ipsum", new DateTime(2020, 01, 01), new List<string>(), DateTime.Today);
             Expected.Comments.Add("Jimmy John Jr");
@@ -57,7 +58,7 @@ namespace Logic.Tests
         [TestMethod(),ExpectedException(typeof(FileNotFoundException))]
         public void DeletePortFolioSuccessTest()
         {
-            Admin = new AdminInteractions(portfolioAccess);
+            Admin = new AdminInteractions(portfolioAccess, guestBookAccess);
             int index = 0;
 
             Admin.DeletePortFolio(index);

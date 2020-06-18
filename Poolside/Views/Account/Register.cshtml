@@ -20,15 +20,16 @@
             @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
             {
                 <form>
-                    <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" value=""/>
-                    <input id="Email" type="text" placeholder="Enter a nickname" class="SignUp-Input" asp-for="NickName" value=""/>
-                    <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" value=""/>
+                    <input id="Email" type="email" placeholder="Enter an email" class="SignUp-Input" asp-for="Email" value="" />
+                    <input id="Email" type="text" placeholder="Enter a nickname" class="SignUp-Input" asp-for="NickName" value="" />
+                    <input id="Password1" type="password" placeholder="Enter a password" class="SignUp-Input" asp-for="Password" value="" />
                     <button type="submit" class="SignUp-Input-Button">
                         <span style="user-select:none;">Create account</span>
                     </button>
                 </form>
             }
-            <span>Already have an account? <u><a onclick="ChangeWindow('SignUp','LogIn')">Log In</a></u></span>
+            <span>Already have an account? </span>
+            <button class="SignUp-Input-Button" onclick="ChangeWindow('SignUp','LogIn')">Log In</button>
         </div>
     </div>
 </div>

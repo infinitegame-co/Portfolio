@@ -25,6 +25,7 @@ namespace Poolside.Models
             Conversions con = new Conversions();
             HomePageInteractions hpi = new HomePageInteractions(new PortfolioAccess(), new GuestBookAccess());
             ivm.GuestBookEntries = con.ConvertToGuestBookViewModelList(hpi.GetAllGuestBooks());
+            ivm.GuestBookEntries.Reverse();
             return ivm;
         }
     }

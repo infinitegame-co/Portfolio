@@ -34,7 +34,7 @@ namespace Poolside.Controllers
                 GuestBookDTO dto = conversions.ConvertToGuestBookDTO(guestBook);
                 userInteractions.WriteInGuestBook(dto);
                 model = new GlobalViewModel();
-                model.LatestMessage = "Successfully written in guestbook";
+                model.LatestMessage = "Successfully written in guestbook! \n Open the guestbook again to see your entry.";
             }
             else
             {
