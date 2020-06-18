@@ -22,7 +22,7 @@
     </div>
 
     <div id="GuestBookWindow">
-        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: none;">
+        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display: @ViewBag.ShowGuestBook;">
             <div class="background">
                 <div class="Drag-header">
                     <span class="Bt-Close" onclick="CloseWindow('GuestBookWindow')"></span>
@@ -37,56 +37,55 @@
                 <div style="height:253px;">
                     <ul style="height: calc(100% + 2px); overflow:auto; left:0; list-style: none;">
                         @for (int i = 0; i < Model.VMindex.GuestBookEntries.Count; i++)
-                        {
-                            <li style="border: 1px solid #000;">
-                                @if (i == 0)
-                                {
-                                    @if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
-                                    {
-                                        @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
-                                        {
-                                            <form asp-action="DeleteEntry">
-                                                @*TODO: fix this asap, IActionResult does not receive guestbook value*@
-                                                <button type="submit">
-                                                </button>
-                                            </form>
-                                        }
-                                    }
-                                }
-                                <p>
-                                    <bold>@Model.VMindex.GuestBookEntries[i].UserNickName </bold>
-                                    @Model.VMindex.GuestBookEntries[i].PostDate.ToString("HH:mm  dd/MM/yyyy")
-                                </p>
-                                <p style="overflow-wrap:break-word">
-                                    @Model.VMindex.GuestBookEntries[i].Message
-                                </p>
-                            </li>
-                        }
-
-                        @*@foreach (GuestBookViewModel gb in Model.VMindex.GuestBookEntries)
                             {
                                 <li style="border: 1px solid #000;">
-                                    @if (Model.VMlogin != null && Model.VMlogin.NickName == gb.UserNickName)
+                                    @if (i == 0)
                                     {
-                                        @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                        @if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
                                         {
-                                            <form asp-action="DeleteEntry">
-                                                TODO: fix this asap, IActionResult does not receive guestbook value
-                                                <input type="hidden" asp-for="VMguestBook" value=@gb />
-                                                <button type="submit">
-                                                </button>
-                                            </form>
+                                            @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                <form asp-action="DeleteEntry">
+                                                    
+                                                    <button type="submit">
+                                                    </button>
+                                                </form>
+                                            }
                                         }
                                     }
                                     <p>
-                                        <bold>@gb.UserNickName </bold>
-                                        @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
+                                        <bold>@Model.VMindex.GuestBookEntries[i].UserNickName </bold>
+                                        @Model.VMindex.GuestBookEntries[i].PostDate.ToString("HH:mm  dd/MM/yyyy")
                                     </p>
                                     <p style="overflow-wrap:break-word">
-                                        @gb.Message
+                                        @Model.VMindex.GuestBookEntries[i].Message
                                     </p>
                                 </li>
-                            }*@
+                            }
+
+                        @*@foreach (GuestBookViewModel gb in Model.VMindex.GuestBookEntries)
+                        {
+                            <li style="border: 1px solid #000;">
+                                @if (Model.VMlogin != null && Model.VMlogin.NickName == gb.UserNickName)
+                                {
+                                    @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        <form asp-action="DeleteEntry">
+                            TODO: fix this asap, IActionResult does not receive guestbook value
+                                            <button type="submit" onclick=@{Model.VMguestBook = gb;}>
+                                            </button>
+                                        </form>
+                                    }
+                                }
+                                <p>
+                                    <bold>@gb.UserNickName </bold>
+                                    @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
+                                </p>
+                                <p style="overflow-wrap:break-word">
+                                    @gb.Message
+                                </p>
+                            </li>
+                        }*@
                     </ul>
                 </div>
             </div>
@@ -94,7 +93,10 @@
     </div>
 
     <div id="LogoutWindow">
-        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:none;">
+        <div class="shadowB Draggable" style="        position: absolute;
+        border: 1px solid #000;
+        display: none;
+">
             <div class="Bottom-image" style="position:absolute; bottom:0; left:0; width: calc(100% - 18px);height: 12px;"></div>
             <div class="background">
                 <div class="Drag-header">

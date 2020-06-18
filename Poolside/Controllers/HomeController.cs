@@ -32,6 +32,7 @@ namespace Poolside.Controllers
             indexmodel.GuestBookEntries = conversion.ConvertToGuestBookViewModelList(homePageInteractions.GetAllGuestBooks());
             model.VMindex = indexmodel;
             model.LatestMessage = "Welcome, please Sign In";
+            ViewBag.ShowGuestBook = "none";
             return View(model);
         }
 
@@ -46,7 +47,13 @@ namespace Poolside.Controllers
             adminInteractions.DeleteLatestGuestBookEntry();
             GlobalViewModel model = new GlobalViewModel();
             model.LatestMessage = "Guestbook entry deleted succesfully";
+            ViewBag.ShowGuestBook = "inline-block";
             return View("../Home/Index", model);
+            //adminInteractions.DeleteGuestBookEntry(conversion.ConvertToGuestBookDTO(glob.VMguestBook));
+            //GlobalViewModel model = new GlobalViewModel();
+            //model.LatestMessage = "Guestbook entry deleted succesfully";
+            //ViewBag.ShowGuestBook = "inline-block";
+            //return View("../Home/Index", model);
         }
     }
 }
