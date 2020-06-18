@@ -19,7 +19,7 @@
                 <img src="~/img/icons/LowresLogo.png" height="12" />
                 <span>After Dark</span>
             </span>
-            <button class="link"><span><span style="text-decoration:underline;">A</span>bout</span></button>
+            <button class="link" onclick="OpenWindow('ErrorMessage')"><span><span style="text-decoration:underline;">A</span>bout</span></button>
             <button class="link" disabled><span><span style="text-decoration:underline;">T</span>hemes</span></button><!--TODO: add themes-->
             @if (ViewBag.FakeLogin == null || ViewBag.FakeLogin == false)//TODO: add sessions
             {
