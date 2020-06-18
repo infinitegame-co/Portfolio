@@ -13,7 +13,7 @@ namespace Poolside.Models
         public IndexViewModel VMindex { get; set; }
         public LoginViewModel VMlogin { get; set; }
         public ErrorViewModel VMerror { get; set; }
-
+        public string LatestMessage { get; set; }
         public GlobalViewModel()
         {
             VMindex = VMindex == null ? GenNewFilledIndexList() : VMindex;

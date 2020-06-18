@@ -9,7 +9,7 @@ namespace Poolside.Models
         [Required, EmailAddress]
         public string Email { get; set; }
         public string NickName { get; set; }
-        [Required, MinLength(6)]
+        [Required,MinLength(6, ErrorMessage ="Password must be at least 6 characters long")]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
 

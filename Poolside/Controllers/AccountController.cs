@@ -38,7 +38,16 @@ namespace Poolside.Controllers
                     ViewBag.FakeLogin = true;
                     ViewBag.Nickname = user.NickName;
                     global.VMlogin = _Convert.ConvertToLoginViewModel(user);
+                    global.LatestMessage = "Logged in successfully";
                 }
+                else
+                {
+                    global.LatestMessage = "Couldn't log in: No user was found under that email";
+                }
+            }
+            else
+            {
+                global.LatestMessage = "Couldn't log in: one or more fields left empty";
             }
             return View("../Home/Index", global);
         }
@@ -56,6 +65,12 @@ namespace Poolside.Controllers
             {
                 AccountDTO account = _Convert.ConvertToAccountDTO(loginViewModel);
                 _User.CreateAccount(account);
+                global.LatestMessage = "Account" + account.NickName + " made successfully";
+
+            }
+            else
+            {
+                global.LatestMessage = "No account made, one or more fields were not valid";
             }
             return View("../Home/Index", global);
         }
@@ -69,6 +84,7 @@ namespace Poolside.Controllers
         public IActionResult Forgot(LoginViewModel loginViewModel)
         {
             GlobalViewModel global = new GlobalViewModel();
+            global.LatestMessage = "No password recovery email was sent.";
             return View("../Home/Index", global);
         }
     }

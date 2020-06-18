@@ -40,16 +40,16 @@
                         {
                             <li style="border: 1px solid #000;">
                                 @*@if (Model.VMlogin != null && Model.VMlogin.IsAdmin == true)
-                                {
-                                    @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
                                     {
-                                        <form>//TODO: fix this asap, IActionResult does not receive guestbook value
-                                            <input type="hidden" asp-for="VMguestBook" value=@gb />
-                                            <button type="submit">
-                                            </button>
-                                        </form>
-                                    }
-                                }*@
+                                        @using (Html.BeginForm("DeleteEntry", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, false, new { @class = "form-horizontal", role = "form" }))
+                                        {
+                                            <form>//TODO: fix this asap, IActionResult does not receive guestbook value
+                                                <input type="hidden" asp-for="VMguestBook" value=@gb />
+                                                <button type="submit">
+                                                </button>
+                                            </form>
+                                        }
+                                    }*@
                                 <p>
                                     <bold>@gb.UserNickName </bold>
                                     @gb.PostDate.ToString("HH:mm  dd/MM/yyyy")
@@ -128,6 +128,25 @@
         </div>
     </div>
 
+    <div id="ErrorMessage">
+        <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:inline-block;">
+            <div class="Bottom-image" style="position:absolute; bottom: 0; left: 0; width: calc(100% - 18px);height: 12px;"></div>
+            <div class="background">
+                <div class="Drag-header">
+                    <img src="~/img/UI/DragBar.png" class="spacer" style="width:60% !important;" />
+                    <h2 class="Content-Title">
+                        Latest Message
+                    </h2>
+                </div>
+                <div class="Box-Outer">
+                    <div style="background-color:white; width: 300px; height: 200px;" class="Box-Inner">
+                        <span style="padding-left: 5px;"> @Model.LatestMessage</span>
+                    </div>
+                </div>
+                <div class="scale"></div>
+            </div>
+        </div>
+    </div>
 
     <div id="PortfolioFolder">
         <div class="shadowB Draggable" style="position: absolute; border: 1px solid #000; display:none;">

@@ -26,14 +26,22 @@ namespace Poolside.Controllers
         [HttpPost]
         public IActionResult GuestBook(GuestBookViewModel guestBook)
         {
+            GlobalViewModel model;
             if (ModelState.IsValid)
             {
                 DateTime now = DateTime.Now;
                 guestBook.PostDate = new DateTime(1997, now.Month, now.Day, now.Hour, now.Minute, now.Second);
                 GuestBookDTO dto = conversions.ConvertToGuestBookDTO(guestBook);
                 userInteractions.WriteInGuestBook(dto);
+                model = new GlobalViewModel();
+                model.LatestMessage = "Successfully written in guestbook";
             }
-            return View("../Home/Index", new GlobalViewModel());
+            else
+            {
+                model = new GlobalViewModel();
+                model.LatestMessage = "Couldn't write in guestbook";
+            }
+            return View("../Home/Index", model);
 
         }
     }
