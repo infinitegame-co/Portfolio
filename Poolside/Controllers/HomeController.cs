@@ -30,6 +30,7 @@ namespace Poolside.Controllers
             GlobalViewModel model = new GlobalViewModel();
             IndexViewModel indexmodel = new IndexViewModel();
             indexmodel.GuestBookEntries = conversion.ConvertToGuestBookViewModelList(homePageInteractions.GetAllGuestBooks());
+            indexmodel.GuestBookEntries.Reverse();
             model.VMindex = indexmodel;
             model.LatestMessage = "Welcome, please Sign In";
             ViewBag.ShowGuestBook = "none";
